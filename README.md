@@ -14,11 +14,11 @@ This is why investments in better data quality, richer ontologies, and more capa
 
 The problem is structural: coherence emerges from interaction, not from any participant in the interaction. Therefore the solution must also be structural. It must operate at the boundary, not inside either system. It must define a shared standard for declaring what is required, demonstrating what is known, identifying what is missing, and recording what was decided — at every crossing point, between any two systems, regardless of their internal architecture.
 
-The Context Graphs program addresses this in four layers:
+The Context Graphs program addresses this in four layers (the "Coherence Stack"):
 
 | Layer | Name | Purpose | Key Operations |
 |---|---|---|---|
-| 0 | **Tensor Substrate** | Converts contextual prerequisites, resolution states, and facet evaluations into a unified mathematical representation for computational analysis | Eigensum computation, Tucker decomposition, tensor factorization of multi-facet uncertainty vectors, dimensionality reduction across boundary-crossing state |
+| 0 | **Tensor Substrate** | Provides the unified mathematical substrate for representing and operating on contextual prerequisites, resolution states, and facet evaluations as tensor equations | Eigensum computation, Tucker decomposition, tensor factorization of multi-facet uncertainty vectors, dimensionality reduction across boundary-crossing state |
 | 1 | **Context Graph** | An auditable, append-only hypergraph log of context events at local and global system boundaries, accessible only through the Context Graph Control Plane | Four-facet evaluation (meaning, structure, data, context); gap decomposition; validation report generation; knowledge graph view; authenticated access control |
 | 2 | **Coherence Protocol** | Composes boundary evaluations across systems and governs action at each crossing | Gap propagation through pipelines; resolution trace linking; canonical form reduction (O(N²) → O(N)); Act / Ask / Halt protocol actions; Flag and Trace |
 | 3 | **Decision Interface** | Consumes coherence measurements and resolution traces to drive downstream decisions | Facet-indexed uncertainty vector ingestion; decision model integration (threshold, Bayesian, utility, etc.); auditable decision replay; policy parameter application |
