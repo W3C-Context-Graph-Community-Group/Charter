@@ -19,7 +19,7 @@ The Context Graphs program addresses this in four layers:
 | Layer | Name | Purpose | Key Operations |
 |---|---|---|---|
 | 0 | **Tensor Substrate** | Converts contextual prerequisites, resolution states, and facet evaluations into a unified mathematical representation for computational analysis | Eigensum computation, Tucker decomposition, tensor factorization of multi-facet uncertainty vectors, dimensionality reduction across boundary-crossing state |
-| 1 | **Context Graph** | Represents prerequisite state at a single boundary: what is required, what is evidenced, what is missing | Four-facet evaluation (meaning, structure, data, context); gap decomposition; instance lifecycle management |
+| 1 | **Context Graph** | An auditable, append-only hypergraph log of context events at local and global system boundaries, accessible only through the Context Graph Control Plane | Four-facet evaluation (meaning, structure, data, context); gap decomposition; validation report generation; knowledge graph view; authenticated access control |
 | 2 | **Coherence Protocol** | Composes boundary evaluations across systems and governs action at each crossing | Gap propagation through pipelines; resolution trace linking; canonical form reduction (O(N²) → O(N)); Act / Ask / Halt protocol actions; Flag and Trace |
 | 3 | **Decision Interface** | Consumes coherence measurements and resolution traces to drive downstream decisions | Facet-indexed uncertainty vector ingestion; decision model integration (threshold, Bayesian, utility, etc.); auditable decision replay; policy parameter application |
 
