@@ -14,7 +14,14 @@ This is why investments in better data quality, richer ontologies, and more capa
 
 The problem is structural: coherence emerges from interaction, not from any participant in the interaction. Therefore the solution must also be structural. It must operate at the boundary, not inside either system. It must define a shared standard for declaring what is required, demonstrating what is known, identifying what is missing, and recording what was decided — at every crossing point, between any two systems, regardless of their internal architecture.
 
-The Context Graphs program addresses this in three layers. The first is a data model: **the Context Graph**, for representing prerequisite state at a single boundary: what is required, what is evidenced, what is missing, and how the gap decomposes across four facets of meaning, structure, data, and context. The second is a **Coherence Protocol** for composing boundary evaluations across systems: how gaps propagate through pipelines, how resolution traces link, and how the protocol's canonical form reduces integration cost from quadratic to linear as ecosystems grow. The third is a policy and trace model for deciding what to do at each boundary — act, ask, or halt — and recording the decision, its evidence, and its rationale as a persistent, auditable artifact.
+The Context Graphs program addresses this in four layers:
+
+| Layer | Name | Purpose | Key Operations |
+|---|---|---|---|
+| 0 | **Tensor Substrate** | Converts contextual prerequisites, resolution states, and facet evaluations into a unified mathematical representation for computational analysis | Eigensum computation, Tucker decomposition, tensor factorization of multi-facet uncertainty vectors, dimensionality reduction across boundary-crossing state |
+| 1 | **Context Graph** | Represents prerequisite state at a single boundary: what is required, what is evidenced, what is missing | Four-facet evaluation (meaning, structure, data, context); gap decomposition; instance lifecycle management |
+| 2 | **Coherence Protocol** | Composes boundary evaluations across systems and governs action at each crossing | Gap propagation through pipelines; resolution trace linking; canonical form reduction (O(N²) → O(N)); Act / Ask / Halt protocol actions; Flag and Trace |
+| 3 | **Decision Interface** | Consumes coherence measurements and resolution traces to drive downstream decisions | Facet-indexed uncertainty vector ingestion; decision model integration (threshold, Bayesian, utility, etc.); auditable decision replay; policy parameter application |
 
 ## Scope
 
