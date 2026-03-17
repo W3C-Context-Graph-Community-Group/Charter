@@ -29,16 +29,20 @@ That led to a formal protocol for detecting and resolving misalignment at system
 
 Each committee covers a different part of the architecture. Please review the full descriptions and decide which group (or groups) you'd like to participate in:
 
-- **Coherence Protocol** — Ron Itelman (Group Chair)
-- **Communication & Internal Operations** — Ron Itelman (Temporary)
-  
-- **Semantic Alignment** — Kurt Cagle
-- **Decision Interface** — Dr. Lorien Pratt
-- **Applied Knowledge** — Audrey Depeige
-- **Syntax & Serialization** — Juan Cruz Viotti
-- **Business & Industry** — Anthony Marquardt
-- **Agentic AI** — *pending*
-- **Coherence Failure Taxonomies & Measurement** — *pending*
+*Each committee within the Context Graphs Community Group leads a specific surface of this architecture.*
+
+| Committee | Chair | Scope |
+|---|---|---|
+| **Coherence Protocol** | Ron Itelman | Core protocol specification: four facets, canonical claim form, Halt/Ask/Act, dependency ordering |
+| **Semantic Alignment** | Kurt Cagle | Interface with existing semantic web infrastructure (OWL, RDF, SHACL, SKOS) |
+| **Decision Interface** | Dr. Lorien Pratt | Contract between coherence measurements and decision models |
+| **Applied Knowledge** | Audrey Depeige | Bridge between specification, deployment, and measuring benefit |
+| **Syntax & Serialization** | Juan Cruz Viotti | Wire formats, Intent Map specification, canonical claim form serialization |
+| **Business & Industry** | Anthony Marquardt | Use cases, pilots, and the business case for adoption |
+| **Agentic AI** | <pending> | Agent-to-agent and agent-to-system boundary crossings |
+| **Error Analysis and Theory** | <pending> | Error classification, coherence scoring, and measurement theory for the Halt/Ask/Act thresholds |
+| **Communications and Operations** | Ron Itelman <temporary> | Design simple ways to self-organize effectively |
+
 
 Thank you to all the committee chairs for stepping up to lead this work. I'll be honest — I'm amazed at the group we've assembled. Semantic web architects, decision scientists, applied researchers, JSON/API engineers, and business strategists all in one room. Every one of them is someone I learn from, and the opportunity to work alongside them is not lost on me. 
 
