@@ -86,7 +86,8 @@ The instrument exists. The industry faces the hole. The fact that it's simple do
 | **Applied Knowledge** | Audrey Depeige | Bridge between specification, deployment, and measuring benefit |
 | **Syntax & Serialization** | Juan Cruz Viotti | Wire formats, Intent Map specification, canonical claim form serialization |
 | **Business & Industry** | Anthony Marquardt | Use cases, pilots, and the business case for adoption |
-| **Agentic AI** | Alex Brown | Agent-to-agent and agent-to-system boundary crossings |
+| **Agentic AI** | <pending> | Agent-to-agent and agent-to-system boundary crossings |
+| **Error Analysis / Measurement Theory** | <pending> | Understanding key error classifications for reliable measures of uncertainty reduction. |
 
 ---
 
