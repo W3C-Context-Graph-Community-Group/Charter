@@ -76,18 +76,19 @@ The instrument exists. The industry faces the hole. The fact that it's simple do
 
 ---
 
-*Each committee within the Context Graphs Community Group owns a specific surface of this architecture. See the committee's own README for its scope, responsibilities, and current work.*
+*Each committee within the Context Graphs Community Group owns a specific surface of this architecture.*
 
 | Committee | Chair | Scope |
 |---|---|---|
-| **Community Group** | Ron Itelman | Overall direction and the Coherence Protocol specification |
+| **Coherence Protocol** | Ron Itelman | Core protocol specification: four facets, canonical claim form, Halt/Ask/Act, dependency ordering
 | **Semantic Alignment** | Kurt Cagle | Interface with existing semantic web infrastructure (OWL, RDF, SHACL, SKOS) |
 | **Decision Interface** | Dr. Lorien Pratt | Contract between coherence measurements and decision models |
 | **Applied Knowledge** | Audrey Depeige | Bridge between specification, deployment, and measuring benefit |
 | **Syntax & Serialization** | Juan Cruz Viotti | Wire formats, Intent Map specification, canonical claim form serialization |
 | **Business & Industry** | Anthony Marquardt | Use cases, pilots, and the business case for adoption |
 | **Agentic AI** | <pending> | Agent-to-agent and agent-to-system boundary crossings |
-| **Error Analysis / Measurement Theory** | <pending> | Understanding key error classifications for reliable measures of uncertainty reduction. |
+| **Error Analysis and Theory** | <pending> | Error classification, coherence scoring, and measurement theory for the Halt/Ask/Act thresholds |
+| **Communications and Operations** | Ron Itelman <temporary> | Design simple ways to self-organize effectively |
 
 ---
 
