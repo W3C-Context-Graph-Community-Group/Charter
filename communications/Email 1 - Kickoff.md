@@ -30,6 +30,8 @@ That led to a formal protocol for detecting and resolving misalignment at system
 Each committee covers a different part of the architecture. Please review the full descriptions and decide which group (or groups) you'd like to participate in:
 
 - **Coherence Protocol** — Ron Itelman (Group Chair)
+- **Communication & Internal Operations** — Ron Itelman (Temporary)
+  
 - **Semantic Alignment** — Kurt Cagle
 - **Decision Interface** — Dr. Lorien Pratt
 - **Applied Knowledge** — Audrey Depeige
@@ -37,6 +39,10 @@ Each committee covers a different part of the architecture. Please review the fu
 - **Business & Industry** — Anthony Marquardt
 - **Agentic AI** — *pending*
 - **Coherence Failure Taxonomies & Measurement** — *pending*
+
+Thank you to all the committee chairs for stepping up to lead this work. I'll be honest — I'm amazed at the group we've assembled. Semantic web architects, decision scientists, applied researchers, JSON/API engineers, and business strategists all in one room. Every one of them is someone I learn from, and the opportunity to work alongside them is not lost on me. 
+
+If you're interested in helping with group communications and coordination, there's an open slot — reach out to me directly.
 
 Full descriptions are here: [Committee Chairs README](https://github.com/W3C-Context-Graph-Community-Group/Charter)
 
