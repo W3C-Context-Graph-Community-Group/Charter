@@ -56,17 +56,17 @@ If you see a problem we're not addressing, bring it. If you have boundary proble
 
 I'd like to host two kickoff calls so people can choose which works better for them, and if you can't make either time, please ping me and we'll figure something out.
 
-- **Option 1:** March 24th
-Tuesday, March 24 · 12:00 – 1:00pm
-Time zone: America/Denver
-Video call link: https://meet.google.com/zmq-ztjj-qxx
-Or dial: ‪(US) +1 339-545-4323‬ PIN: ‪682 982 936‬#
+- **Option 1:** March 24th  
+Tuesday, March 24 · 12:00 – 1:00pm  
+Time zone: America/Denver  
+Video call link: https://meet.google.com/zmq-ztjj-qxx  
+Or dial: ‪(US) +1 339-545-4323‬ PIN: ‪682 982 936‬#  
 
-- **Option 2:** March 31st
-Tuesday, March 31 · 12:00 – 1:00pm
-Time zone: America/Denver
-Video call link: https://meet.google.com/bqr-nqsc-wut
-Or dial: ‪(US) +1 267-870-7492‬ PIN: ‪471 927 350‬#
+- **Option 2:** March 31st  
+Tuesday, March 31 · 12:00 – 1:00pm  
+Time zone: America/Denver  
+Video call link: https://meet.google.com/bqr-nqsc-wut  
+Or dial: ‪(US) +1 267-870-7492‬ PIN: ‪471 927 350‬#  
 
 Each call will cover the same content: brief introductions, a walk through of the committees and how to get involved, and a chance to ask questions. Attend whichever works for you.
 
