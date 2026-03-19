@@ -39,9 +39,9 @@ Each committee covers a different part of the architecture. Please review the fu
 | **Applied Knowledge** | Audrey Depeige | Bridge between specification, deployment, and measuring benefit |
 | **Syntax & Serialization** | Juan Cruz Viotti | Wire formats, Intent Map specification, canonical claim form serialization |
 | **Business & Industry** | Anthony Marquardt | Use cases, pilots, and the business case for adoption |
-| **Agentic AI** | <pending> | Agent-to-agent and agent-to-system boundary crossings |
+| **Agentic AI** | Alex Brown | Agent-to-agent and agent-to-system boundary crossings |
 | **Error Analysis and Theory** | <pending> | Error classification, coherence scoring, and measurement theory for the Halt/Ask/Act thresholds |
-| **Communications and Operations** | Ron Itelman <temporary> | Design simple ways to self-organize effectively |
+
 
 
 Thank you to all the committee chairs for stepping up to lead this work. I'll be honest — I'm amazed at the group we've assembled. Semantic web architects, decision scientists, applied researchers, JSON/API engineers, and business strategists all in one room. Every one of them is someone I learn from, and the opportunity to work alongside them is not lost on me. 
