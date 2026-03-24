@@ -1,10 +1,20 @@
 # W3C Context Graphs Community Group Charter
 
+**Draft — March 2026 · Version 2.0**
+
 ---
 
 ## Mission
 
-The mission of the Context Graphs Community Group is to develop specifications, vocabularies, and best practices for representing and resolving contextual misalignment between systems at their boundaries — where global knowledge representations (organizational knowledge bases, ontologies, policies, shared data models) meet local interpretation contexts (user intent, operational setting, execution constraints, domain-specific framing) in decision systems and human–AI workflows.
+![Using the word "context" without a precise definition is like using the word "information" before the "bit" was defined. We're changing that.](figures/figure-12.png)
+
+The mission of the Context Graphs Community Group is to develop the **Context Graph Protocol** — a layered protocol stack for observing, measuring, and resolving uncertainty at system boundaries, including null uncertainty: the state in which a system does not know there is a question to ask.
+
+The Context Graph Protocol is a recursive decision process for weighing intentions against costs to resolve uncertainty across boundaries. At every step: what do I intend to know, what does it cost to find out, and is the cost justified given the exposure? If yes, Ask — acquire the missing context. If the answer reveals further uncertainty, recurse. If the cost exceeds the value, Act on what you have or Halt. The protocol is designed to be general across digital systems, human interactions, organizational boundaries, and any combination of the two — because uncertainty at boundaries is not a property of software. It is a property of any interaction between parties that do not share a codebook.
+
+![Decisions Under Null Uncertainty: Risk (you know the question and the odds), Knightian Uncertainty (you know the question but not the odds), Null Uncertainty (you don't know there's a question — no variable to hold uncertainty exists).](figures/figure-6.png)
+
+The protocol operates where global knowledge representations (organizational knowledge bases, ontologies, policies, shared data models) meet local interpretation contexts (user intent, operational setting, execution constraints, domain-specific framing) in decision systems and human–AI workflows. It standardizes the envelope, not the message: a shared structure for declaring what is required, demonstrating what is known, identifying what is missing, and recording what was decided — at every crossing point, between any two systems, regardless of their internal architecture.
 
 ## Introduction
 
@@ -12,9 +22,23 @@ A database can enforce its own schema. An ontology can define its own terms. An 
 
 This is why investments in better data quality, richer ontologies, and more capable AI models — however valuable in their own right — cannot solve the coherence problem. A column in a CSV does not know what the dashboard consuming it requires. A dashboard does not know what the CSV assumed. An AI agent retrieving a financial filing does not know which of 27 tagged revenue definitions matches the analyst's intent, and the analyst does not know the definitions exist. Every component can be individually correct and the composite result can still be wrong, because correctness at the boundary was never evaluated.
 
-The problem is structural: coherence emerges from interaction, not from any participant in the interaction. Therefore the solution must also be structural. It must operate at the boundary, not inside either system. It must define a shared standard for declaring what is required, demonstrating what is known, identifying what is missing, and recording what was decided — at every crossing point, between any two systems, regardless of their internal architecture.
+![No One Knows Your Intent — Context and Semantic Sovereignty. A "Global" system with a boundary separating its interior from a "Local" system. Coherence flows between them. The person's intent exists only in their own context.](figures/figure-5.png)
 
-The Coherence Stack is the four-layer architecture that organizes the Context Graphs program. Each layer addresses a distinct problem that the layers above it cannot solve: the Tensor Substrate provides a unified mathematical representation that makes coherence state computable; the Context Graph is a hypergraph to log events that enable measures of coherence at a boundary; the Coherence Protocol specifies how those measurements are made and compared; and the Decision Interface acts on them. No layer prescribes the internal architecture of the systems on either side of it — each standardizes only the contract at its own boundary, leaving practitioners free to apply any compatible ML, inference, or decision framework downstream.
+Two approaches exist for addressing this gap. The ontology approach defines all terms, constrains all schemas, and builds a complete semantic model before systems can interoperate. This works — when it can be done. In practice, perhaps 2% of an organization's system boundaries ever receive that treatment. The other 98% operate in the null state — unmodeled, unmeasured, silently assuming alignment.
+
+The protocol approach provides the cheapest possible instrument that any boundary can deploy. String equality on a five-column canonical form. Binary output. O(1) per facet comparison. If 80% of an organization's boundaries are running even a minimal coherence check at minimal semantic precision, that is measurable. It is calibratable. It is a surface that improves over time. Per the formal argument in *Decisions Under Null Uncertainty* (Itelman, 2026), measurable uncertainty at minimal precision is categorically better than null uncertainty at any precision — because null uncertainty is invisible, unpriced, and accumulating.
+
+This Community Group builds the protocol.
+
+From a technical perspective, the problem of transmitting information along with its structure and metadata is known and well-studied. What this group targets is the verification step that extends beyond structure to include verification of meaning. From an operational perspective, the protocol provides the simplest building blocks to teams, with a small set of principles that guarantee they can come together and share a way to measure uncertainty of coherence across meaning and structure.
+
+The problem is structural: coherence emerges from interaction, not from any participant in the interaction. Therefore the solution must also be structural. It must operate at the boundary, not inside either system.
+
+![Closed Systems vs Open Systems. In a closed system, a modeller has authority for semantics and creates coherence manually. In an open system, when more than one intent map exists between systems, coherence needs a shared protocol as a reference frame, so systems can negotiate and update their own models internally.](figures/figure-8.png)
+
+It must define a shared standard for declaring what is required, demonstrating what is known, identifying what is missing, and recording what was decided — at every crossing point, between any two systems, regardless of their internal architecture.
+
+The **Context Graph Protocol** is a layered protocol stack comprising four specifications. Each layer addresses a distinct problem that the layers above it cannot solve and defines the contract at its boundary with the layers above and below it.
 
 | Layer | Name | Purpose | Key Operations |
 |---|---|---|---|
@@ -23,27 +47,37 @@ The Coherence Stack is the four-layer architecture that organizes the Context Gr
 | 2 | **Coherence Protocol** | Specifies how coherence measurements are made and compared across boundaries: whether representations are identical, whether sufficient information exists to compare them, and how uncertainty is expressed as collapsible pure states | Cross-boundary comparison of representations; gap detection; pure state encoding of uncertainty (e.g. 0,0,0,0,1,0); uncertainty collapse on sampling; resolution trace linking; canonical form reduction (O(N²) → O(N)); Act / Ask / Halt |
 | 3 | **Decision Interface** | Consumes coherence measurements and resolution traces to drive downstream decisions | Facet-indexed uncertainty vector ingestion; decision model integration (threshold, Bayesian, utility, etc.); auditable decision replay; policy parameter application |
 
+The Context Graph Specification (Layer 1) is authored by the Group Chair because it defines the shared data model and canonical claim form that all other layer specifications build upon. Steering committees develop specifications, integration strategies, and implementation guidance within their designated layers. No layer prescribes the internal architecture of the systems on either side of a boundary — each standardizes only the contract at its own boundary, leaving practitioners free to apply any compatible framework downstream.
+
 ## Scope
 
 Many decision and information systems implicitly assume that a shared knowledge model and the local context at the point of interaction are aligned. In practice, this alignment frequently fails: terms carry different meanings across organizational, temporal, or operational boundaries; assumptions embedded in global models do not hold locally; and key context required to interpret state, policy, or meaning is absent, unavailable, or ambiguous at the point of use. These failures are distinct from data quality or optimization problems. They represent a structural interoperability gap in how context is communicated, validated, and resolved across systems.
 
+The Context Graph Protocol addresses this gap as a protocol — not an ontology, not a vocabulary, and not a replacement for any existing semantic standard. A protocol defines a sequence of structured operations between parties. The Context Graph Protocol defines the operations required to observe uncertainty at a boundary, measure it through facet comparison, and resolve it through the Halt/Ask/Act decision sequence. It is a recursive decision process: each resolution may reveal further uncertainty, triggering further inquiry, until the cost of asking exceeds the value of knowing. This process is not specific to software. A human analyst questioning a data source, an AI agent checking a codebook, a compliance officer verifying a regulatory definition, and two organizations negotiating the meaning of a shared term are all running the same protocol. The parties differ. The process is the same. Existing semantic infrastructure (RDF, OWL, SHACL, SKOS) provides the vocabulary for expressing codebooks. The Context Graph Protocol provides the instrument for detecting whether two codebooks are aligned at a boundary — a capability no existing standard provides.
+
 A Context Graph treats this gap as a first-class, interoperable artifact: a structured representation of the contextual prerequisites required for valid interpretation, their dependencies, and their resolution status. A Context Graph is instantiated on demand at a system boundary, populated during the course of a query or interaction, and produces a resolution trace recording what was checked, what was found, what was ambiguous, and what action was taken.
+
+![Knowledge Graph (what is known) vs Context Graph (negotiating unknowns). A knowledge graph stores assertions like "Alice likes Bob." A context graph is where Bob asks "Does Alice like me?" — it negotiates what is not yet known.](figures/figure-7.png)
 
 ### In Scope
 
 The Community Group will address the following areas:
 
-#### 1. Context Graph Specification (Single Boundary)
+#### 1. Context Graph Specification (Layer 1 — Single Boundary)
 
 A core data model for expressing contextual prerequisites and resolution state at any individual system boundary. This includes a minimal vocabulary for describing common categories of contextual mismatch across four facets: meaning, structure, data, and context. The context facet encompasses both operational context (temporal, organizational, and environmental conditions at the point of use) and epistemic context (the actor's domain knowledge, assumptions, and capacity to interpret what a system returns). The specification will define the lifecycle of a Context Graph instance — instantiation, population, evaluation, trace production, and teardown — as an ephemeral, on-demand operation.
 
 These instances carry no assumptions about the scale of the systems involved and can be joined, persisted, or kept ephemeral and in memory.
 
+The Context Graph Specification defines the canonical claim form: the irreducible five-column projection surface (id, source, timestamp, key, value) onto which any system can externalize its codebook at the moment of contact, requiring no prior agreement on terms. The four-facet decomposition (Meaning, Structure, Data, Context), the dependency ordering (Context → Meaning → Structure → Data), and the canonical claim form are binding architectural commitments of the protocol. Implementations must conform to these structures; the semantic content expressed through them is unconstrained.
+
+![A Protocol for Context Graphs — the four-facet model. Each facet (Data, Meaning, Structure, Context) projects onto the same five-column canonical form (I, S, T, K, V) with URN-namespaced keys.](figures/figure-2.png)
+
 #### 2. Intent Map Specification
 
 A declarative format for expressing coherence requirements at a boundary crossing: what must be checked, what rules apply, what thresholds trigger clarification or halt conditions, and what risk tolerance governs action under uncertainty. Intent Maps may be authored by users, inferred by systems, or composed from both. The specification will define a minimal schema that is format-agnostic (JSON, YAML, or other serializations).
 
-#### 3. Coherence Protocol (Cross-Boundary Composition)
+#### 3. Coherence Protocol Specification (Layer 2 — Cross-Boundary Composition)
 
 When multiple Context Graphs must relate — for example, when a downstream system consumes outputs from multiple upstream systems, each with its own boundary crossing — the relationships between individual Context Graphs carry information not present in any single graph. The whole is not the sum of its parts. The Coherence Protocol specifies how individual Context Graphs compose: how to detect alignment, conflict, or unknown state across multiple boundary crossings; how to propagate uncertainty; and how to produce a composite resolution trace. This enables coherence evaluation at arbitrary scale — between any two systems, across chains of systems, or within nested decision architectures.
 
@@ -63,6 +97,8 @@ Inherently, any one of these actions can include:
 - **Flag** — alignment state is unknown; action depends on declared risk tolerance.
 - **Trace** — all evaluations produce a resolution record regardless of action taken.
 
+![Semantic Sovereignty — Act, Ask, Halt. Two parties view "Open Systems" with different intents: one sees "Open Systems Architecture" (Act), the other sees "Open World Assumption" (Halt). Ask bridges the gap. The Context Graph gives local semantic authority with global coherence measures of uncertainty.](figures/figure-1.png)
+
 #### 6. Coherence Failure Taxonomy for Agentic Systems
 
 A classification of failure modes that arise when autonomous or semi-autonomous agents act on data whose contextual alignment has not been verified. This includes silent misalignment (definitions conflict but pipelines execute without error), semantic drift (meaning shifts between systems or over time without notification), absent context (required prerequisites for valid interpretation were never defined), and cascading incoherence (a coherence failure in one boundary crossing propagates through downstream agent decisions). The taxonomy will define each failure mode, its observable symptoms, its relationship to the four-facet evaluation model, and the protocol actions appropriate to detect or prevent it.
@@ -71,7 +107,7 @@ A classification of failure modes that arise when autonomous or semi-autonomous 
 
 The following areas are explicitly excluded from the work of this Community Group:
 
-**Defining ontologies or vocabularies for specific domains.** The Community Group standardizes how systems report what they know and do not know about meaning at a boundary. It does not standardize what meaning is in any particular domain.
+**Defining ontologies or vocabularies for specific domains.** The Community Group standardizes how systems report what they know and do not know about meaning at a boundary. It does not standardize what meaning is in any particular domain. The protocol's canonical form is domain-agnostic by design: the five columns are fixed; the namespace is open. Any ontology, vocabulary, or schema can project onto the canonical surface. The protocol measures the boundary — it does not prescribe what is on either side of it.
 
 **Replacing or competing with existing semantic web standards.** Context Graphs are complementary to RDF, OWL, SKOS, and similar vocabularies. They operate at the pragmatic layer — meaning in use, in context, by a specific actor — not at the semantic layer where meaning is defined by a system.
 
@@ -81,11 +117,39 @@ The following areas are explicitly excluded from the work of this Community Grou
 
 **Specifying runtime execution environments.** The specification defines the data model, vocabulary, and protocol. It does not prescribe how implementations host, execute, or scale Context Graph evaluations.
 
+## Design Principles
+
+Four principles govern the design of the Context Graph Protocol. These are binding commitments — all layer specifications and committee work must be consistent with them.
+
+**Self-Organization within Governed Boundaries.** Some structures must be globally controlled: the canonical claim form, the dependency ordering, the four-facet decomposition, the Halt/Ask/Act decision sequence. These are the protocol's guarantees — the floor that makes interoperability possible. Everything above the floor is self-organizing: each committee, each implementation, each domain chooses its own vocabulary, resolution strategies, and decision thresholds. The protocol does not prescribe what meaning is. It prescribes the structure for comparing meanings across boundaries.
+
+**Minimization of Structural Complexity.** The protocol commits to the simplest mathematical structures that can represent the problem. Binary values — match or mismatch — are the native output of every gauge comparison. Tensors organize these binary values across boundaries, fields, and time. Tucker decomposition factors the tensor to reveal structural patterns. Eigensums and eigenvalues identify the principal axes of misalignment. Pure states express uncertainty as collapsible superposition over binary outcomes. No layer introduces representational complexity that the layer below it does not require.
+
+**Combinatorial Automata Logic.** The protocol's rules are recursive and composable. A gauge comparison at one boundary produces a binary vector. That vector is a claim in the canonical form. Claims compose across boundaries. Rules that operate on claims at one boundary can travel to another boundary and operate there, because the substrate is the same everywhere. The recursion of the Context facet — where every resolution may reveal further incompleteness — is the protocol's native mode of operation. The termination condition is economic (value of information goes negative), not logical.
+
+**Minimization of Uncertainty through Projected Measurement.** The protocol's purpose is to minimize uncertainty at boundaries. This requires two capabilities: observing uncertainty as an event (the gauge produces a measurement), and measuring it in a projected space (both systems project their codebooks onto the canonical claim surface). All measurements are local — each system measures from its own perspective. The protocol's meta-surface — the field of Liquid Coherence — is the shared projection space where local perspectives become comparable.
+
+![Liquid Cognitive Coherence — a gauge for holonic coordinates over time. An ontology is like a map: a pre-drawn representation of territory that must be constructed before you can navigate. Liquid Coherence is like a mercury mirror reflecting the stars — it measures what is, without changing it, accepting any forms in the sky. A 2D surface optimized for computation. Not a perfect model, but enough to allow agriculture, the beginning of calendars, and temporal measures far more accurate than any map of the sky could provide.](figures/figure-13.png)
+
+It is the resolution surface on which every boundary state can be located, every movement can be priced, and the optimal allocation of verification effort can be computed. The field does not exist inside any single system. It emerges at the boundary. This is the mission of the Community Group: not graphs of words, but graphs of systems — open dynamical systems whose coherence is observable, measurable, and improvable across the full scope of an organization and its networks. 100% the language of AI and machine learning. 100% the language of human understanding and human decision-making. End-to-end, with the ability to rotate and zoom perspective from a single local boundary to an organization-wide coherence surface, governed by Intent Maps that give humans control over concepts that scale.
+
+## Operating Culture
+
+This Community Group uses its own protocol as its primary operating method. The Context Graph Protocol is designed to measure and resolve uncertainty at system boundaries. The group's own committees, specifications, and deliberations are system boundaries. We will apply the protocol to ourselves: instantiating Context Graphs at the boundaries between committees, running facet comparisons on our own specifications as they develop, producing resolution traces of our own design decisions, and using the Halt/Ask/Act sequence when our own terms, assumptions, or requirements are ambiguous.
+
+This serves two purposes. First, it produces real test data from the earliest stage of the group's work — before any external pilot, the protocol will have been exercised on the problem of building itself. Second, it establishes the group's culture: this is a space for creative experimentation with new methods, not for enforcing adherence to existing standards.
+
+Participants whose primary interest is in the rigorous application of existing semantic web standards — RDF, OWL, SHACL, SKOS — are welcomed and valued within the Semantic Alignment Committee, whose mission is to bridge those standards to the protocol's specification requirements. That committee ensures the protocol is compatible with the semantic web stack. It does not require the protocol to be built from the semantic web stack.
+
+Participants whose interest is in inventing new instruments for measuring uncertainty, testing new representations, exploring new decision structures, and building things that do not yet exist — this is your group. The only non-negotiable requirement across all committees is that their work meets the Context Graph Protocol specification: projections onto the canonical claim form, binary facet outputs, compatibility with the Tensor Substrate. How each committee achieves that is their creative decision. What they build beyond that is their community's vision.
+
 ## Motivating Example
 
 A driver pulls out of a parking lot. The navigation system says turn left. The map is correct. The route is correct. The GPS coordinates are correct. The driver turns left and goes the wrong direction.
 
 The system did not know which direction the driver was facing. Every piece of data was accurate. The road network ontology was sound. The sensors worked. But one missing contextual prerequisite — the driver's orientation relative to the map's frame of reference — turned a correct instruction into a wrong action. The system did not flag the uncertainty. It did not ask. It issued a confident directive based on an incomplete model of the driver's local state. The recovery cost was a U-turn.
+
+![Data was correct, Decision was wrong — a navigation app showing "Left on Holly St" with a correct map, correct route, correct GPS. But the system didn't know which direction the driver was facing.](figures/figure-10.png)
 
 Now consider the same pattern at higher stakes. A junior analyst asks an AI agent to build a revenue dashboard for a publicly traded company. The agent retrieves the company's 10-K filing via XBRL. The filing contains 27 distinct tagged references to revenue — gross revenue, net revenue, revenue from operations, revenue by segment, adjusted revenue, deferred revenue, and others — each with different calculation methodologies and reporting contexts. The agent selects one. It does not disclose which one it selected, that alternatives existed, or that the selection carries interpretive consequences.
 
@@ -117,15 +181,15 @@ The second approach is protocol-based: define a shared canonical form that every
 
 This is the same structural reduction that made the internet possible. Before the adoption of shared protocol stacks, connecting a new computer network to an ecosystem of N existing networks required building N custom translators. The Internet Protocol eliminated this quadratic cost by defining a canonical packet format that every network maps to and from independently. The total integration infrastructure dropped from O(N²) to O(N), and that factorization is why the internet scaled from four nodes to billions.
 
-The Coherence Protocol performs the same factorization for semantic coherence. The canonical form is not a universal dictionary of definitions — that would require all systems to agree on what terms mean, which is neither feasible nor desirable. The canonical form is a shared structure for expressing what is required and what is known at any boundary. Each system publishes its prerequisites and evidence in terms of that shared structure. Resolution traces produced at one boundary are legible at every other boundary without translation. The protocol standardizes the envelope, not the message.
+The Context Graph Protocol performs the same factorization for semantic coherence. The canonical form is not a universal dictionary of definitions — that would require all systems to agree on what terms mean, which is neither feasible nor desirable. The canonical form is a shared structure for expressing what is required and what is known at any boundary. Each system publishes its prerequisites and evidence in terms of that shared structure. Resolution traces produced at one boundary are legible at every other boundary without translation. The protocol standardizes the envelope, not the message.
 
 ### What this means in practice
 
 An organization with 50 systems exchanging data today manages semantic coherence — to whatever extent it manages it at all — through a combination of tribal knowledge, manual documentation, and bespoke validation scripts. That is point-to-point integration, whether or not it is recognized as such. Adding a 51st system means understanding its interactions with each of the existing 50.
 
-Under the Coherence Protocol, adding that 51st system means defining its prerequisite mappings once, in terms of the shared vocabulary. Every existing resolution trace in the ecosystem is already legible to it. Every boundary evaluation it produces is immediately legible to every other system. The protocol-level integration cost of adding a new system is constant — one adapter — not proportional to ecosystem size.
+Under the Context Graph Protocol, adding that 51st system means defining its prerequisite mappings once, in terms of the shared vocabulary. Every existing resolution trace in the ecosystem is already legible to it. Every boundary evaluation it produces is immediately legible to every other system. The protocol-level integration cost of adding a new system is constant — one adapter — not proportional to ecosystem size.
 
-This is not an analogy to internet protocols. It is the same mathematical structure applied to a different domain. The Internet Protocol proved that connectivity scales only when the interoperability contract is defined at the boundary, not inside the systems on either side. The Coherence Protocol applies that same principle: the interoperability contract for meaning, structure, data, and context must be defined at the boundary, where the gap between systems actually exists.
+This is not an analogy to internet protocols. It is the same mathematical structure applied to a different domain. The Internet Protocol proved that connectivity scales only when the interoperability contract is defined at the boundary, not inside the systems on either side. The Context Graph Protocol applies that same principle: the interoperability contract for meaning, structure, data, and context must be defined at the boundary, where the gap between systems actually exists.
 
 ## Steering Committees
 
@@ -141,9 +205,11 @@ These expectations may be revised by the Community Group Chair as the group's op
 
 **Coherence Protocol** — Chaired by the Community Group Chair. Owns the core specification for cross-boundary composition: how independent Context Graphs relate, how uncertainty propagates across multiple boundary crossings, and how composite resolution traces are produced. This is the central technical deliverable of the group.
 
+**Tensor Substrate** — Owns the specification for the mathematical representation layer (Layer 0). Defines the canonical mapping from the claim form to tensor representations, the JSON-TL serialization format for Tensor Logic programs, and the operations (Tucker decomposition, eigensum computation, dimensionality reduction) that enable downstream ML and inference frameworks to operate on boundary coherence state. Ensures the substrate is minimal, binary-native, and sufficient to host self-referential models whose weights are stored as canonical claims.
+
 **Syntax & Serialization** — Owns the Intent Map specification and all format-level concerns: how coherence requirements, resolution states, and traces are expressed in concrete serializations (JSON, YAML, and other formats). Ensures the specifications are implementable by developers working in mainstream toolchains without requiring adoption of any single data model.
 
-**Semantic Alignment** — Owns the interface between the Context Graph specification and existing semantic web infrastructure (OWL, RDF, SHACL, SKOS). Ensures that organizations with existing ontologies, knowledge graphs, and constraint languages can express their definitions as inputs to the meaning facet without translation loss. Validates that the specification is compatible with, and does not duplicate, established W3C standards.
+**Semantic Alignment** — Owns the bridge between the Context Graph Protocol and existing semantic web infrastructure (OWL, RDF, SHACL, SKOS). The committee's deliverable is the mapping that enables semantic systems to meet the protocol's specification requirements: expressing codebook projections in the canonical five-column claim form and producing binary facet comparison outputs compatible with the Tensor Substrate. This ensures that organizations with existing ontologies, knowledge graphs, and constraint languages can participate in boundary coherence measurement without abandoning their current infrastructure. The committee validates that the protocol is compatible with, and does not duplicate, established W3C standards. The committee does not define the protocol's core data model, dependency ordering, or canonical form — those are Layer 1 commitments authored at the Group Chair level.
 
 **Industry Adoption** — Owns the relationship between the specification and real enterprise problems. Responsible for sourcing use cases from active industry engagements, identifying organizations willing to pilot the protocol, validating that the specification addresses problems practitioners recognize, and building the business case required to advance from Community Group to Working Group status.
 
@@ -151,14 +217,21 @@ These expectations may be revised by the Community Group Chair as the group's op
 
 **Decision Interface** — Owns the specification for how coherence measurements interface with decision models. Defines the contract between the measurement layer (the uncertainty vector produced by a Context Graph evaluation) and any external decision model that consumes it: what inputs the decision model receives, what outputs it must return, and what must be recorded in the resolution trace to ensure the decision is auditable and replayable. Ensures the interface is neutral to the choice of decision framework — threshold-based rules, utility models, Bayesian inference, or other approaches — so that the measurement and decision layers remain independently replaceable.
 
+![The Context Graph Decision Interface — a grid showing canonical claims (id, source, time, key, value) with protocol actions (Ask, Act, Halt) for each row. Connected keys and values show dependency relationships. A Halt condition stops the pipeline.](figures/figure-4.png)
+
+**Agentic / AI** — Owns the specification surface for autonomous and semi-autonomous agents that cross boundaries at machine speed. Addresses how agents implement the protocol, how the coherence failure taxonomy applies to agent behavior, and how the rate of boundary crossing under agent-paced operation affects the accumulation of unpriced exposure.
+
+**Error Analysis & Theory** — *(Pending chair appointment.)* Owns the formal analysis of protocol correctness, failure mode classification, and the theoretical foundations connecting the protocol to decision theory, information theory, and the economics of uncertainty. Maintains the relationship between the protocol's operational behavior and the formal results in *Decisions Under Null Uncertainty* and *Liquid Coherence*.
+
 ## Deliverables
 
 ### Specifications
+
 The Community Group intends to produce the following Community Group Reports:
 
-1. **Context Graph Data Model** — Core specification for representing contextual prerequisites, resolution state, and the four-facet evaluation model at a single system boundary.
+1. **Context Graph Data Model** — Core specification for representing contextual prerequisites, resolution state, and the four-facet evaluation model at a single system boundary. Defines the canonical claim form (id, source, timestamp, key, value), the four-facet decomposition, and the dependency ordering. Authored at the Group Chair level as the binding Layer 1 specification.
 2. **Intent Map Format** — Specification for declaring coherence requirements, risk tolerance, and evaluation rules at a boundary crossing.
-3. **Coherence Protocol** — Specification for composing multiple Context Graphs across system boundaries, including uncertainty propagation, cross-boundary alignment detection, and composite resolution traces. The Coherence Protocol requires all boundary inputs to conform to the canonical claim form (id, source, timestamp, key, value) as specified by the Syntax & Serialization committee. Claims not conforming to this form are not evaluable by the protocol.
+3. **Coherence Protocol** — Specification for composing multiple Context Graphs across system boundaries, including uncertainty propagation, cross-boundary alignment detection, and composite resolution traces. The Coherence Protocol requires all boundary inputs to conform to the canonical claim form as specified by the Context Graph Data Model. Claims not conforming to this form are not evaluable by the protocol.
 4. **Tensor Substrate Specification** — Specification for representing and operating on contextual prerequisites, resolution states, and facet evaluations as tensor equations, enabling practitioners to apply any ML or inference framework downstream. Defines the canonical mapping from the claim form to tensor representations and the JSON-TL serialization format for Tensor Logic programs. The specification additionally defines the canonical form for storing converged perceptron weights as claims in the Context Graph, enabling each boundary crossing to contribute to a shared, auditable learning substrate that is retrievable for global inference across holons.
 5. **Resolution Trace Format** — Specification for recording and exchanging the decision history of Context Graph evaluations.
 6. **Decision Interface Specification** — Specification for the contract between Context Graph coherence measurements and external decision models. Defines the input surface (the facet-indexed uncertainty vector, policy parameters, and boundary metadata), the output surface (a protocol action and optional flags), and the trace requirements for auditable decision replay. The specification is neutral to the choice of decision framework: it standardizes what a decision model receives and what it must return, not how it reasons internally.
@@ -193,4 +266,18 @@ The group will conduct its technical work primarily in its public GitHub reposit
 
 ## Decisions and Amendments
 
-The group prioritizes iterative development and testable outputs. Decisions will be made through consensus where possible. Where consensus cannot be reached, the Chair may call for a group vote, requiring a simple majority of participants who have expressed a position. The initial Chair is Ron Itelman, as proposer of the Community Group. Additional or successor Chairs may be appointed by consensus or majority vote of the group participants. This charter may be amended by consensus of the group participants. Substantive changes require notice to the group mailing list and a minimum comment period of 14 days before adoption. This charter will be updated as operational processes mature.
+The group prioritizes iterative development and testable outputs. Decisions will be made through consensus where possible. Where consensus cannot be reached, the Chair may call for a group vote, requiring a simple majority of participants who have expressed a position. The initial Chair is Ron Itelman, as proposer of the Community Group. The founding Chair serves for the duration of the group unless they resign or are removed through the W3C Community Group Process. The founding Chair may appoint co-Chairs. Co-Chairs serve at the founding Chair's discretion.
+
+### Group Chair Authority
+
+The Group Chair maintains the group-level glossary and binding definitions that all committees align to. Committees may extend these definitions internally for their own work, but their public-facing specifications and deliverables must be consistent with the group-level glossary. The Group Chair may update the glossary at any time; substantive changes will be communicated to the group mailing list.
+
+Steering committee chairs are appointed by the Group Chair and serve at the Group Chair's discretion. The Group Chair may remove a steering committee chair at any time if, in the Chair's judgment, the committee's work is not aligned with the charter, the protocol's design principles, or the group's operational needs. Removal will be communicated respectfully and with stated reasoning. The Group Chair may appoint a replacement or leave the position open for recruitment.
+
+### Charter Ratification
+
+This charter is presented in draft form at the group's inaugural meeting and will remain in draft through the initial operating period. The Group Chair may make corrections, clarifications, and refinements to the draft charter during this period — including typographical fixes, structural reorganization, and language improvements — without requiring a vote.
+
+The formal ratification process will begin at the group's first quarterly meeting. At that time, the Chair will call for a 14-day feedback period during which participants may submit principled objections via the group's public mailing list or GitHub repository. If no principled objections are received within that period, the charter is ratified by consensus. If principled objections are received, the Chair will address them through revision or call a group vote, requiring two-thirds of votes cast to approve the charter.
+
+Once ratified, substantive amendments follow the same process: 14-day notice, consensus or two-thirds vote. Non-substantive corrections (typos, formatting, link updates) may be made by the Group Chair at any time.
