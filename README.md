@@ -6,17 +6,21 @@
 
 ## Mission
 
-The mission of the Context Graphs Community Group is to develop the Context Graph Protocol — a nested protocol stack for observing, measuring, and resolving uncertainty at system boundaries. Each system projects its local codebook onto a shared surface. The projections are compared. The protocol runs on the comparison.
+<img src="figures/figure-12.png" alt="Using the word context without a precise definition is like using the word information before the bit was defined. We're changing that." width="35%">
+
+The mission of the Context Graphs Community Group is to develop the **Context Graph Protocol** — a nested protocol stack for observing, measuring, and resolving uncertainty at system boundaries. Each system projects its local codebook onto a shared surface. The projections are compared. The protocol runs on the comparison.
 
 Context, as used by this group, is the information that, when it crosses a boundary, changes how the receiving system interprets what it already has. This is not the casual use of the word. It is a formal object — the unit of resolution for uncertainty at boundaries.
-
-<img src="figures/figure-12.png" alt="Description" width="45%">
 
 **The Context Graph Protocol** is a recursive decision process for weighing intentions against costs to resolve uncertainty across boundaries. At every step: what do I intend to know, what does it cost to find out, and is the cost justified given the exposure? If yes, Ask — acquire the missing context. If the answer reveals further uncertainty, recurse. If the cost exceeds the value, Act on what you have or Halt. The protocol is designed to be general across digital systems, human interactions, organizational boundaries, and any combination of the two — because uncertainty at boundaries is not a property of software. It is a property of any interaction between parties that do not share a codebook.
 
 **The Outcome of the Protocol is the Context Graph**: The act of running this recursive process is what produces a context graph — the structured, auditable record of every question asked, every resolution reached, and every gap that remains open at a boundary. Not a protocol about context graphs. A protocol that creates them through the act of measuring.
 
 No existing standard bridges semantic systems (ontologies, knowledge graphs, RDF) and non-semantic systems (APIs, databases, spreadsheets, AI agents) under a single protocol for identifying and resolving uncertainty in mutual understanding. Semantic systems have rich representations but require prior agreement on terms. Non-semantic systems have none. Both encounter the same problem at boundaries: the system on the other side may not mean what you think it means, and nothing tells you. The Context Graph Protocol is designed to bridge these worlds — any system that can project onto five columns can participate, whether it carries a full OWL ontology or a flat CSV with no metadata at all.
+
+<img src="figures/figure-6.png" alt="Decisions Under Null Uncertainty taxonomy: Risk, Knightian Uncertainty, Null Uncertainty" width="35%">
+
+The protocol operates where global knowledge representations (organizational knowledge bases, ontologies, policies, shared data models) meet local interpretation contexts (user intent, operational setting, execution constraints, domain-specific framing) in decision systems and human–AI workflows. It standardizes the envelope, not the message: a shared structure for declaring what is required, demonstrating what is known, identifying what is missing, and recording what was decided — at every crossing point, between any two systems, regardless of their internal architecture.
 
 ### Why a 'Context Graph Protocol'?
 
@@ -26,8 +30,8 @@ No existing standard bridges semantic systems (ontologies, knowledge graphs, RDF
 
 **Protocol** — because this is a defined sequence of interactions between parties, not a static schema or an ontology. The dependency ordering (Context → Meaning → Structure → Data) is a sequence. The Halt/Ask/Act decision is a sequence. The recursion — where each resolution may reveal further uncertainty — is a sequence. A protocol tells two parties who have never met how to negotiate coherence at a boundary without prior agreement. An ontology tells one party how to represent what it already knows. We needed the first one.
 
-*Theoretical foundations* 
-The Context Graph Protocol draws on three bodies of work: 
+*Theoretical foundations*
+The Context Graph Protocol draws on three bodies of work:
 - Active Inference (Friston, 2010), which provides the decision-theoretic grounding for selecting which measurement to take next
 - Tensor Logic: The Language of AI (Domingos, 2025), which provides the computational grammar for operating on binary measurement outputs
 - Unifying Business, Data, and Code: Designing Data Products with JSON Schema (Itelman and Viotti, O'Reilly, 2024), which provides the canonical claim form and the practical framework for codebook projection at system boundaries
@@ -38,28 +42,21 @@ Chair's background: The Group Chair's prior work is in computational psychometri
 
 ---
 
-
-
-<img src="figures/figure-6.png" alt="Decisions Under Null Uncertainty taxonomy: Risk, Knightian Uncertainty, Null Uncertainty" width="45%">
-
-The protocol operates where global knowledge representations (organizational knowledge bases, ontologies, policies, shared data models) meet local interpretation contexts (user intent, operational setting, execution constraints, domain-specific framing) in decision systems and human–AI workflows. It standardizes the envelope, not the message: a shared structure for declaring what is required, demonstrating what is known, identifying what is missing, and recording what was decided — at every crossing point, between any two systems, regardless of their internal architecture.
-
 ## Introduction
 
 A database can enforce its own schema. An ontology can define its own terms. An AI model can optimize its own outputs. But none of these systems can know what a consuming system requires, what assumptions a producing system embedded, or whether the meaning of a term as defined in one context matches the meaning expected in another. That information does not exist inside either system. It exists only at the boundary between them — in the relationship between what one system declares and what another system needs.
 
 This is why investments in better data quality, richer ontologies, and more capable AI models — however valuable in their own right — cannot solve the coherence problem. A column in a CSV does not know what the dashboard consuming it requires. A dashboard does not know what the CSV assumed. An AI agent retrieving a financial filing does not know which of 27 tagged revenue definitions matches the analyst's intent, and the analyst does not know the definitions exist. Every component can be individually correct and the composite result can still be wrong, because correctness at the boundary was never evaluated.
 
-<img src="figures/figure-5.png" alt="No One Knows Your Intent — Context and Semantic Sovereignty" width="45%">
+<img src="figures/figure-5.png" alt="No One Knows Your Intent — Context and Semantic Sovereignty" width="35%">
 
-Two approaches exist for addressing this gap. The ontology approach defines all terms, constrains all schemas, and builds a complete semantic model before systems can interoperate. This works — when it can be done. In practice, only a small fraction of an organization's system boundaries ever receive that treatment. The vast majority operate in the null state — unmodeled, unmeasured, silently assuming alignment. 
-
-One of the outcomes of this research is that we hypothesize a direct way to measure the unit cost, with bit-precision, for organizational investment decisions around risk and semantic investment.
+Two approaches exist for addressing this gap. The ontology approach defines all terms, constrains all schemas, and builds a complete semantic model before systems can interoperate. This works — when it can be done. In practice, only a small fraction of an organization's system boundaries ever receive that treatment. The vast majority operate in the null state — unmodeled, unmeasured, silently assuming alignment.
 
 The protocol approach provides the cheapest possible instrument that any boundary can deploy. String equality on a five-column canonical form. Binary output. O(1) per facet comparison. If 80% of an organization's boundaries are running even a minimal coherence check at minimal semantic precision, that is measurable. It is calibratable. It is a surface that improves over time. Per the formal argument in *Decisions Under Null Uncertainty* (Itelman, 2026), measurable uncertainty at minimal precision is categorically better than null uncertainty at any precision — because null uncertainty is invisible, unpriced, and accumulating.
 
-*This Community Group builds the protocol.*
-More precisely: this Community Group uses the protocol to build the protocol — applying its own methods to its own work as the first test case. The protocol is the minimal set of rules that give all participants shared guarantees of measurement across every boundary in the group's work.
+One of the outcomes of this research is that we hypothesize a direct way to measure the unit cost, with bit-precision, for organizational investment decisions around risk and semantic investment.
+
+This Community Group builds the protocol. More precisely: this Community Group uses the protocol to build the protocol — applying its own methods to its own work as the first test case. The protocol is the minimal set of rules that give all participants shared guarantees of measurement across every boundary in the group's work.
 
 From a technical perspective, the problem of transmitting information along with its structure and metadata is known and well-studied. What this group targets is the verification step that extends beyond structure to include verification of meaning. From an operational perspective, the protocol provides the simplest building blocks to teams, with a small set of principles that guarantee they can come together and share a way to measure uncertainty of coherence across meaning and structure.
 
@@ -102,7 +99,7 @@ These instances carry no assumptions about the scale of the systems involved and
 
 The Context Graph Specification defines the canonical claim form: the irreducible five-column projection surface (id, source, timestamp, key, value) onto which any system can externalize its codebook at the moment of contact, requiring no prior agreement on terms. The four-facet decomposition (Meaning, Structure, Data, Context), the dependency ordering (Context → Meaning → Structure → Data), and the canonical claim form are binding architectural commitments of the protocol. Implementations must conform to these structures; the semantic content expressed through them is unconstrained.
 
-<img src="figures/figure-2.png" alt="A Protocol for Context Graphs — the four-facet canonical form" width="45%">
+<img src="figures/figure-2.png" alt="A Protocol for Context Graphs — the four-facet canonical form" width="35%">
 
 #### 2. Intent Map Specification
 
@@ -128,7 +125,7 @@ Inherently, any one of these actions can include:
 - **Flag** — alignment state is unknown; action depends on declared risk tolerance.
 - **Trace** — all evaluations produce a resolution record regardless of action taken.
 
-<img src="figures/figure-1.png" alt="Semantic Sovereignty — Act, Ask, Halt" width="45%">
+<img src="figures/figure-1.png" alt="Semantic Sovereignty — Act, Ask, Halt" width="35%">
 
 #### 6. Coherence Failure Taxonomy for Agentic Systems
 
@@ -180,7 +177,7 @@ A driver pulls out of a parking lot. The navigation system says turn left. The m
 
 The system did not know which direction the driver was facing. Every piece of data was accurate. The road network ontology was sound. The sensors worked. But one missing contextual prerequisite — the driver's orientation relative to the map's frame of reference — turned a correct instruction into a wrong action. The system did not flag the uncertainty. It did not ask. It issued a confident directive based on an incomplete model of the driver's local state. The recovery cost was a U-turn.
 
-<img src="figures/figure-10.png" alt="Data was correct, Decision was wrong" width="45%">
+<img src="figures/figure-10.png" alt="Data was correct, Decision was wrong" width="35%">
 
 Now consider the same pattern at higher stakes. A junior analyst asks an AI agent to build a revenue dashboard for a publicly traded company. The agent retrieves the company's 10-K filing via XBRL. The filing contains 27 distinct tagged references to revenue — gross revenue, net revenue, revenue from operations, revenue by segment, adjusted revenue, deferred revenue, and others — each with different calculation methodologies and reporting contexts. The agent selects one. It does not disclose which one it selected, that alternatives existed, or that the selection carries interpretive consequences.
 
@@ -248,11 +245,17 @@ These expectations may be revised by the Community Group Chair as the group's op
 
 **Decision Interface** — Owns the specification for how coherence measurements interface with decision models. Defines the contract between the measurement layer (the uncertainty vector produced by a Context Graph evaluation) and any external decision model that consumes it: what inputs the decision model receives, what outputs it must return, and what must be recorded in the resolution trace to ensure the decision is auditable and replayable. Ensures the interface is neutral to the choice of decision framework — threshold-based rules, utility models, Bayesian inference, or other approaches — so that the measurement and decision layers remain independently replaceable.
 
-<img src="figures/figure-4.png" alt="The Context Graph Decision Interface" width="45%">
+<img src="figures/figure-4.png" alt="The Context Graph Decision Interface" width="35%">
 
 **Agentic / AI** — Owns the specification surface for autonomous and semi-autonomous agents that cross boundaries at machine speed. Addresses how agents implement the protocol, how the coherence failure taxonomy applies to agent behavior, and how the rate of boundary crossing under agent-paced operation affects the accumulation of unpriced exposure.
 
 **Error Analysis & Theory** — *(Pending chair appointment.)* Owns the formal analysis of protocol correctness, failure mode classification, and the theoretical foundations connecting the protocol to decision theory, information theory, and the economics of uncertainty. Maintains the relationship between the protocol's operational behavior and the formal results in *Decisions Under Null Uncertainty* and *Liquid Coherence*.
+
+**Inference & Surprise** — *(Pending chair appointment.)* Owns the connection between the protocol and active inference: how prediction error at boundaries drives the Ask action, how the learning loop (gauge outputs → trained classifiers → improved measurement) formalizes as an active inference policy over the context graph, and how the system learns where coherence breaks.
+
+**Category Theory** — *(Pending chair appointment.)* Owns the compositional mathematics of the protocol: formal proof that composition rules across chains of boundaries preserve the properties each individual boundary measurement guarantees. Connects to functors, natural transformations, and the mathematics of structure-preserving maps across boundaries.
+
+**Economic Theory** — *(Pending chair appointment.)* Owns the VOI decision rule, the resolution surface as a computable optimization problem, the unit cost of context acquisition, the prospect theory connection (why organizations under-invest in verification), and the exposure accumulation rate under agent-paced operation. Prices every question the protocol asks and every question it doesn't.
 
 ## Deliverables
 
@@ -297,6 +300,18 @@ The group will conduct its technical work primarily in its public GitHub reposit
 
 ## Decisions and Amendments
 
-The group prioritizes iterative development and testable outputs. Decisions will be made through consensus where possible. Where consensus cannot be reached, the Chair may call for a group vote, requiring a simple majority of participants who have expressed a position. The initial Chair is Ron Itelman, as proposer of the Community Group. Additional or successor Chairs may be appointed by consensus or majority vote of the group participants.
+The group prioritizes iterative development and testable outputs. Decisions will be made through consensus where possible. Where consensus cannot be reached, the Chair may call for a group vote, requiring a simple majority of participants who have expressed a position. The initial Chair is Ron Itelman, as proposer of the Community Group. The founding Chair serves for the duration of the group unless they resign or are removed through the W3C Community Group Process. The founding Chair may appoint co-Chairs. Co-Chairs serve at the founding Chair's discretion.
 
-This charter is presented in draft form at the group's inaugural meeting. Participants have 14 days from the date of that meeting to submit feedback or principled objections via the group's public mailing list or GitHub repository. If no principled objections are received within that period, the charter is ratified by consensus. If principled objections are received, the Chair will address them through revision or call a group vote, requiring two-thirds of votes cast to approve the charter. Once ratified, substantive amendments follow the same process: 14-day notice, consensus or two-thirds vote.
+### Group Chair Authority
+
+The Group Chair maintains the group-level glossary and binding definitions that all committees align to. Committees may extend these definitions internally for their own work, but their public-facing specifications and deliverables must be consistent with the group-level glossary. The Group Chair may update the glossary at any time; substantive changes will be communicated to the group mailing list.
+
+Steering committee chairs are appointed by the Group Chair and serve at the Group Chair's discretion. The Group Chair may remove a steering committee chair at any time if, in the Chair's judgment, the committee's work is not aligned with the charter, the protocol's design principles, or the group's operational needs. Removal will be communicated respectfully and with stated reasoning. The Group Chair may appoint a replacement or leave the position open for recruitment.
+
+### Charter Ratification
+
+This charter is presented in draft form at the group's inaugural meeting and will remain in draft through the initial operating period. The Group Chair may make corrections, clarifications, and refinements to the draft charter during this period — including typographical fixes, structural reorganization, and language improvements — without requiring a vote.
+
+The formal ratification process will begin at the group's first quarterly meeting. At that time, the Chair will call for a 14-day feedback period during which participants may submit principled objections via the group's public mailing list or GitHub repository. If no principled objections are received within that period, the charter is ratified by consensus. If principled objections are received, the Chair will address them through revision or call a group vote, requiring two-thirds of votes cast to approve the charter.
+
+Once ratified, substantive amendments follow the same process: 14-day notice, consensus or two-thirds vote. Non-substantive corrections (typos, formatting, link updates) may be made by the Group Chair at any time.
