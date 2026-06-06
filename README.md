@@ -317,14 +317,14 @@ The formal ratification process will begin at the group's first quarterly meetin
 Once ratified, substantive amendments follow the same process: 14-day notice, consensus or two-thirds vote. Non-substantive corrections (typos, formatting, link updates) may be made by the Group Chair at any time.
 
 
-# RELEASE OF ALPHA CONTEXT GRAPH SPECIFICATION - DRAFT - v0.01 - NOT SUITABLE FOR QUOTATION + ZENODO PAPER UPDATES + GOING FORWARD
+# Current Phrase: Specification Draft Complete. Next Phase: Self-organization & Adaptation of the Community
 
-## ZENODO PAPERS
+## Math
 
-I finally have mathematicians with formal published papers, and the math I attempted to, and openly without enough knowledge to validate, finally can be put to rest. Leo Torres will be assisting me as an advisor, so the protocol is grounded in proper mathematical precision.
+We will be updating previous draft papers, as the they weren't grounded properly with mathematical precision. Leo Torres will be assisting with those effots, I will be updating previous Zenodo papers over time.
 
 ## GOING FORWARD - the community drives, and I'm here to help. 
-Multiple enterprise companies have employees who have asked for support to move this to a working group. I'm imaginging a community driven hackathon of html components. I want to meet everyone. I'm taking a break from any coding for a while, but I do want to meet people.
+Multiple enterprise companies have employees who have asked for support to move this to a working group, which I will be working to support. I want to meet everyone in the group, and learn how we can take things further!
 
-# FINALLY THE SPEC
+## Specification Draft v0.1
 [Context Graph Protocol - Draft - v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md)
