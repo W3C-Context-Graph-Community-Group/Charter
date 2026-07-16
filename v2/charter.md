@@ -1,6 +1,9 @@
 # W3C Context Graph Community Group
+
 **version:** 2
+
 By Ron Itelman, W3C Context Graph Community Group Chair
+
 July 15, 2026
 
 The mission of the Context Graph Community Group is to develop an open specification for the Context Graph Protocol: a protocol for creating structured, addressable records of contextual alignment and misalignment at communication boundaries.
