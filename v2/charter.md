@@ -1,10 +1,8 @@
 # W3C Context Graph Community Group
 
-**version:** 2
+**Charter Version 2** 
 
-By Ron Itelman, W3C Context Graph Community Group Chair
-
-July 15, 2026
+Ron Itelman, W3C Context Graph Community Group Chair, _July 15, 2026_
 
 The mission of the Context Graph Community Group is to develop an open specification for the Context Graph Protocol: a protocol for creating structured, addressable records of contextual alignment and misalignment at communication boundaries.
 
@@ -46,14 +44,6 @@ The group organizes its work through topic-specific steering committees. Each co
 
 “Steering Committee Chair” is an internal leadership title within the Context Graph Community Group. Each Chair is responsible for defined deliverables that support the group’s primary objective: identifying and pursuing the most direct viable path for the Context Graph Protocol to transition into standardization through a W3C Working Group.
 
-**Steering Committee Chairs**
-- Semantic Automata: Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM
-- Applied Knowledge: Audrey Depeige, Head of Knowledge Intelligence, Amazon
-- Agentic Engineering: Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge
-- Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee
-- Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG (in progress)
-- Explainability: Michael Barnett, Co-Founder & CTO of HMX.ai (in progress)
-
 **Committee Deliverables**
 
 Each Steering Committee has a defined focus that contributes to the collective goals of the group:
@@ -62,11 +52,20 @@ Each Steering Committee has a defined focus that contributes to the collective g
 - Applied Knowledge: Develop standardized measures for benchmarking contextual alignment in knowledge systems from the user’s perspective
 - Serialization & Specification: Develop clear, implementable serialization formats and support high-quality protocol documentation
 - Agentic Engineering: Identify and test real-world protocol requirements within enterprise agentic technology stacks
-- Business & Finance: Define a real-world business problem and usage scenario, including benchmarks and success criteria.
+- Business & Finance: Provides a real-world business problem and usage scenario, including benchmarks and success criteria
 - Explainable Engineering: Develop approaches for transparently exposing user, system, and organizational intent for explainability and root-cause analysis
 
 **Group Chair's Deliverables**
-- A whitepaper that integrates the work from the Steering Committee Chairs
+- A white paper, authored and edited by the Group Chair, published as a W3C Community Group Report, integrating contributions from the Steering Committees at the Chair's editorial discretion
+
+**Steering Committee Chairs**
+- Semantic Automata: Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM
+- Applied Knowledge: Audrey Depeige, Head of Knowledge Intelligence, Amazon
+- Agentic Engineering: Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge
+- Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee
+- Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG (in progress)
+- Explainability: Michael Barnett, Co-Founder & CTO of HMX.ai (in progress)
+
 
 ## Operations & Processes
 
