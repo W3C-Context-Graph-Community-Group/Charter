@@ -12,7 +12,13 @@ A Context Graph enables systems and organizations to observe communication event
 
 The protocol is intended to support human-to-human, human-to-agent, and agent-to-agent interactions. When the parties to an interaction do not share sufficient understanding of the information being communicated, downstream decisions and actions may carry an increased risk of error.
 
+The relationship between Context & Decisions:
+- Context graphs support the process by which agents and humans establish enough shared understanding to act.
+- Because that process records interpretations, resolutions, dependencies, and changes in state, it naturally produces _Decision Traces_.
+- Decision Traces are a record of how meaning and intent were resolved over time, important institutional knowledge that can inform future decisions rather than being lost after each interaction.
+
 To join: [https://www.w3.org/community/context-graph/](https://www.w3.org/community/context-graph/)
+Draft Alpha spec: [Context Graph Protocol Draft v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md).
 
 ## Quick Business Explanation
 As businesses adopt AI and generative AI for knowledge work, it is increasingly important to ensure that:
@@ -34,10 +40,13 @@ A Context Graph is produced by running the processes defined by the protocol. Th
 2. _Intent Map:_ Defines what communication events may trigger a response by the system
 3. _Decidability Gate:_ Applies declared rules to select an Act, Ask, or Halt response
 4. _Four Facets:_ Provides a common structure for recording Data, Meaning, Structure, and Context
+5. _Decision Trace_: a durable record of what was interpreted, what was resolved, and how the system responded.
   
 Traditional semantic systems can provide rich representations of meaning, but they generally depend on prior agreement about terms, vocabularies, or models. Many non-semantic systems do not provide a standard mechanism for detecting and resolving conflicts in meaning or context.
 
 Both kinds of systems can encounter the same problem at a boundary: the receiving system may interpret information differently from the sending system without either party detecting the difference. The Context Graph Protocol is intended to complement existing approaches by providing a lightweight mechanism for surfacing and responding to potential misalignment in meaning, context, and intent.
+
+
 
 ## Group Structure
 The group organizes its work through topic-specific steering committees. Each committee is led by a Steering Committee Chair responsible for coordinating that committee’s subject area, participation, and deliverables.
@@ -68,10 +77,6 @@ Each Steering Committee has a defined focus that contributes to the collective g
 - Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee
 - Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG (in progress)
 
-## Initial Technical Draft
-
-The group’s initial technical input is the [Context Graph Protocol Draft v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md).
-
 ## Operations & Processes
 
 ### Decision Process
@@ -94,7 +99,7 @@ The addition, replacement, or removal of a formal W3C Community Group Chair requ
 
 ### Charter Ratification and Amendments
 
-The Charter ratification process will begin at the group’s first quarterly meeting.
+The Charter ratification process may begin no earlier than the group’s first quarterly meeting.
 
 Following that meeting, the Community Group Chair will provide the proposed Charter to all group participants and open a 14-day review period. Participants may raise substantive objections through the group’s public mailing list or GitHub repository.
 
@@ -105,7 +110,7 @@ After ratification, substantive changes to the group’s mission, scope, deliver
 The Community Group Chair may make non-substantive corrections—including typographical, formatting, link, title, and contact-information updates—without a vote. Such changes will be publicly recorded.
 
 ### Participation, Contributions, and Licensing
-This group operates under the W3C Community and Business Group Process. Anything in this Charter that conflicts with that Process, the Community Contributor License Agreement (CLA), or the Final Specification Agreement (FSA) is void. Participation is open to anyone; W3C membership is not required and there is no fee to join. Substantive contributions to specifications are made only by participants who have agreed to the CLA. Specifications use the W3C Software and Document License; The group conducts its technical work in public, and the W3C Code of Ethics and Professional Conduct applies. (Links: Process, CLA, Code of Ethics.)
+This group operates under the W3C Community and Business Group Process. Anything in this Charter that conflicts with that Process, the Community Contributor License Agreement (CLA), or the Final Specification Agreement (FSA) is void. Participation is open to anyone; W3C membership is not required and there is no fee to join. Substantive contributions to specifications are made only by participants who have agreed to the CLA. All specifications, documents, software, and code artifacts produced by the group are licensed under the W3C Software and Document License. The group conducts its technical work in public, and the W3C Code of Ethics and Professional Conduct applies.
 
 ## Notes
 This is in a draft state. It is expected to evolve through public contributions, implementation experience, testing, and Community Group decision-making.
