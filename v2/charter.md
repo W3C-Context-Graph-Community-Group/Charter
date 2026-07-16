@@ -53,10 +53,13 @@ Each Steering Committee has a defined focus that contributes to the collective g
 - Serialization & Specification: Develop clear, implementable serialization formats and support high-quality protocol documentation
 - Agentic Engineering: Identify and test real-world protocol requirements within enterprise agentic technology stacks
 - Business & Finance: Provides a real-world business problem and usage scenario, including benchmarks and success criteria
-- Explainable Engineering: Develop approaches for transparently exposing user, system, and organizational intent for explainability and root-cause analysis
 
 **Group Chair's Deliverables**
-- A white paper, authored and edited by the Group Chair, published as a W3C Community Group Report, integrating contributions from the Steering Committees at the Chair's editorial discretion
+- A white paper, authored and edited by the Group Chair, published as a W3C Community Group Report, integrating contributions from the Steering Committees at the Chair's editorial discretion. Participants and committees may separately publish their own materials.
+- Preparation material & work with Steering Committee Chairs to move the group to a W3C Working Group status, with the white paper as evidence to provide the W3C and its members.
+
+**Community Group Member Deliverables**
+- Participation is open to anyone; W3C membership is not required and there is no fee to join. The group welcomes participants who wish to contribute real-world use cases and context-alignment needs, propose features or specification requirements, and experiment with the alpha Context Graph Protocol specification and reference implementation. Use cases and feature requests are submitted as issues in the group's GitHub repository or on the public mailing list.
 
 **Steering Committee Chairs**
 - Semantic Automata: Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM
@@ -64,8 +67,10 @@ Each Steering Committee has a defined focus that contributes to the collective g
 - Agentic Engineering: Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge
 - Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee
 - Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG (in progress)
-- Explainability: Michael Barnett, Co-Founder & CTO of HMX.ai (in progress)
 
+## Initial Technical Draft
+
+The group’s initial technical input is the [Context Graph Protocol Draft v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md).
 
 ## Operations & Processes
 
@@ -99,9 +104,8 @@ After ratification, substantive changes to the group’s mission, scope, deliver
 
 The Community Group Chair may make non-substantive corrections—including typographical, formatting, link, title, and contact-information updates—without a vote. Such changes will be publicly recorded.
 
-## Initial Technical Draft
+### Participation, Contributions, and Licensing
+This group operates under the W3C Community and Business Group Process. Anything in this Charter that conflicts with that Process, the Community Contributor License Agreement (CLA), or the Final Specification Agreement (FSA) is void. Participation is open to anyone; W3C membership is not required and there is no fee to join. Substantive contributions to specifications are made only by participants who have agreed to the CLA. Specifications use the W3C Software and Document License; The group conducts its technical work in public, and the W3C Code of Ethics and Professional Conduct applies. (Links: Process, CLA, Code of Ethics.)
 
-The group’s initial technical input is the [Context Graph Protocol Draft v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md).
-
-This document is an alpha draft for review and development. It is expected to evolve through public contributions, implementation experience, testing, and Community Group decision-making.
-
+## Notes
+This is in a draft state. It is expected to evolve through public contributions, implementation experience, testing, and Community Group decision-making.
