@@ -17,8 +17,9 @@ The relationship between Context & Decisions:
 - Because that process records interpretations, resolutions, dependencies, and changes in state, it naturally produces _Decision Traces_.
 - Decision Traces are a record of how meaning and intent were resolved over time, important institutional knowledge that can inform future decisions rather than being lost after each interaction.
 
-To join: [https://www.w3.org/community/context-graph/](https://www.w3.org/community/context-graph/)
-Draft Alpha spec: [Context Graph Protocol Draft v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md).
+**Important Links**
+- To join: [https://www.w3.org/community/context-graph/](https://www.w3.org/community/context-graph/)
+- Draft Alpha spec: [Context Graph Protocol Draft v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md).
 
 ## Quick Business Explanation
 As businesses adopt AI and generative AI for knowledge work, it is increasingly important to ensure that:
