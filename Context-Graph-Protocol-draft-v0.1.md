@@ -10,14 +10,7 @@ When the schema for these comparisons is reduced to the math object “Four Face
 
 Each Four Facet object is one “Spike” geometrically represented as a tetrahedron on the boundary of the observatron. It is an imaginary object because it is pointing to [“U”], and imaginary concept as the Observer the Observatron bridges to.
 
-YOU, interacting with if(TRUE) cognitively, can be modeled like this diagram, with the Observatron as Automata to programmatically ensure alignment of intent and mutual understanding from within a function, and without.
 
-
-`spike @ boundary[0] → access levels [U, -1, 0, +1] → if(facet EMPTY) {dark_counter++}`
-<div height="30">&nbsp;</div>
-<div align="center">
-<img src="https://raw.githubusercontent.com/RonItelman/public-content-url/main/new-img-url/figure-3.png" width="100%"/>
-</div>
 
 # Step-by-Step Logic of the Context Graph Protocol
 *W3C Context Graph Community Group - Ron Itelman, Chair*
