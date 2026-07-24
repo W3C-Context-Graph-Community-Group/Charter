@@ -54,6 +54,8 @@ The group organizes its work through topic-specific steering committees. Each co
 
 “Steering Committee Chair” is an internal leadership title within the Context Graph Community Group. Each Chair is responsible for defined deliverables that support the group’s primary objective: identifying and pursuing the most direct viable path for the Context Graph Protocol to transition into standardization through a W3C Working Group.
 
+### Steering Committee
+
 **Committee Deliverables**
 
 Each Steering Committee has a defined focus that contributes to the collective goals of the group:
@@ -61,8 +63,15 @@ Each Steering Committee has a defined focus that contributes to the collective g
 - Semantic Automata: Develop an alpha specification and reference implementation for machine-to-machine communication that preserves and exposes relevant system context
 - Applied Knowledge: Develop standardized measures for benchmarking contextual alignment in knowledge systems from the user’s perspective
 - Serialization & Specification: Develop clear, implementable serialization formats and support high-quality protocol documentation
-- Agentic Engineering: Identify and test real-world protocol requirements within enterprise agentic technology stacks
 - Business & Finance: Provides a real-world business problem and usage scenario, including benchmarks and success criteria
+- Agentic Engineering: Apply a context graph to the full stack to block PII: Back-end (Markdown),front-end (HTML)user input & LLM output
+
+**Steering Committee Chairs**
+- Semantic Automata: Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM
+- Applied Knowledge: Audrey Depeige, Head of Knowledge Intelligence, Amazon
+- Agentic Engineering: Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge
+- Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee
+- Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG
 
 **Group Chair's Deliverables**
 - A white paper, authored and edited by the Group Chair, published as a W3C Community Group Report, integrating contributions from the Steering Committees at the Chair's editorial discretion. Participants and committees may separately publish their own materials.
@@ -71,12 +80,6 @@ Each Steering Committee has a defined focus that contributes to the collective g
 **Community Group Member Deliverables**
 - Participation is open to anyone; W3C membership is not required and there is no fee to join. The group welcomes participants who wish to contribute real-world use cases and context-alignment needs, propose features or specification requirements, and experiment with the alpha Context Graph Protocol specification and reference implementation. Use cases and feature requests are submitted as issues in the group's GitHub repository or on the public mailing list.
 
-**Steering Committee Chairs**
-- Semantic Automata: Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM
-- Applied Knowledge: Audrey Depeige, Head of Knowledge Intelligence, Amazon
-- Agentic Engineering: Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge
-- Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee
-- Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG (in progress)
 
 ## Operations & Processes
 
