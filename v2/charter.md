@@ -4,7 +4,7 @@
 
 Ron Itelman, Chair, W3C Context Graph Community Group — *July 27, 2026*
 
-**_Context_ is information that can change how information is understood, relative to a specific situation and local perspective in time. **
+> _Context_ is information that can change how information is understood, relative to a specific situation and local perspective in time. 
 
 What makes information contextual is the role it plays in the _process of changing the state of understanding of an Actor (human, agent, or system)_.
 
