@@ -175,10 +175,13 @@ cgp:/r/intents/components/html/forms/textarea.js     ← the handler code
 `/data` carries whatever crossed the boundary as a payload. The wrapper shape is always `{ "value": <payload> }`, where `<payload>` is any JSON value (including empty values like `""`, `[]`, `{}`).
 
 - For an observatron, the boundary is instantiation. The payload is the instantiation parameters that brought the observatron into being. Common shapes: HTML element attributes, an intent map, a configuration object.
+- An _IntentMap_ determines how message state is converted into data the Observatron handles.
 - For a spike, the boundary is the observatron's watched interface. The payload is the datum that crossed it.
 - One boundary event = one payload.
 - Payload shape is unconstrained; `/structure` declares how it could be validated.
 - Payload is recorded verbatim. See **No-Parsing Rule** above.
+
+A spike carries exactly one payload. How many spikes a boundary crossing mints, and what constitutes one payload, is declared by the intent map.
 
 ---
 
@@ -476,8 +479,8 @@ The smallest computation: one spike in, one integer out. How many of the four ca
 
 **Dark Uncertainty.** `U = B / (3 · |S|)` — where `|S|` is the number of spikes
 observed and `B` is the count of blank gauge facets across them (each spike has
-3 gauge facets: `/meaning`, `/structure`, `/context`). `U ∈ [0,1]`. `U = 0` means
-every gauge facet is filled; `U = 1` means none are. `/data` is excluded — by the
+3 dark facets: `/meaning`, `/structure`, `/context`). `U ∈ [0,1]`. `U = 0` means
+every dark facet is filled; `U = 1` means none are. `/data` is excluded — by the
 Coupling Rule it is always present, so counting it would credit a guarantee as work.
 
 
@@ -486,7 +489,7 @@ Coupling Rule it is always present, so counting it would credit a guarantee as w
 **Coupling Rule**
 
 An entry on the Context Graph — a spike or an observatron — exists **if and
-only if** a payload has crossed a boundary to bring it into being.
+only if** a payload has crossed a boundary and the Intent Map is configured to bring it into being.
 
 - For a **spike**: a datum crossing the observatron's watched boundary mints the spike.
 - For an **observatron**: instantiation parameters crossing from the host (e.g. an HTML element's attributes) mint the observatron.
