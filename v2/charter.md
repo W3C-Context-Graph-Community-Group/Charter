@@ -60,18 +60,18 @@ The group organizes its work through topic-specific steering committees. Each co
 
 Each Steering Committee has a defined focus that contributes to the collective goals of the group:
 
-- Semantic Automata: Develop an alpha specification and reference implementation for machine-to-machine communication that preserves and exposes relevant system context
-- Applied Knowledge: Develop standardized measures for benchmarking contextual alignment in knowledge systems from the user’s perspective
-- Serialization & Specification: Develop clear, implementable serialization formats and support high-quality protocol documentation
-- Business & Finance: Provides a real-world business problem and usage scenario, including benchmarks and success criteria
-- Agentic Engineering: Apply a context graph to the full stack to block PII: Back-end (Markdown),front-end (HTML)user input & LLM output
+- Semantic Automata: Develop an alpha specification and reference implementation for machine-to-machine communication that preserves and exposes relevant system context (semantic attributions). Research and provide directions on the application of formal language and other related techniques to preserve semantic state-space in machine-to-machine communication. 
+- Applied Knowledge: Develop standardized, user-centered measures for benchmarking contextual alignment in knowledge systems over time, including confidence, missing information and other dimensions that are relevant for users to calibrate reliance appropriately.
+- Serialization & Specification: Develop clear, implementable serialization formats and support high-quality protocol documentation.
+- Business & Finance: Provides a real-world business problem and usage scenario, including benchmarks and success criteria.
+- Agentic Engineering: Apply a context graph to the full stack to block PII: Back-end (Markdown),front-end (HTML)user input & LLM output.
 
 **Steering Committee Chairs**
-- Semantic Automata: Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM
-- Applied Knowledge: Audrey Depeige, Head of Knowledge Intelligence, Amazon
-- Agentic Engineering: Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge
-- Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee
-- Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG
+- Semantic Automata: Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM.
+- Applied Knowledge: Audrey Depeige, Head of Knowledge Intelligence, Amazon.
+- Agentic Engineering: Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge.
+- Serialization & Specification: Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee.
+- Business & Finance: Ajay Wanchoo, Senior Managing Director, KPMG.
 
 **Group Chair's Deliverables**
 - A white paper, authored and edited by the Group Chair, published as a W3C Community Group Report, integrating contributions from the Steering Committees at the Chair's editorial discretion. Participants and committees may separately publish their own materials.
