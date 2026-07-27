@@ -4,13 +4,28 @@
 
 Ron Itelman, Chair, W3C Context Graph Community Group — *July 27, 2026*
 
-> _Context_ is information that can change how information is understood, relative to a specific situation and local perspective in time. 
+## IMPORTANT INFORMATION: PLEASE READ FIRST!
+_Context_ is information that can change how information is processed, and is relative to a specific entity (human, AI, or system), in a specific situation in time. 
+
+Because of this, Context MUST enable each specific perspective sovereignty over the concepts they communicate and interact with. However, there can be multiple layers of intent, that of the ```user``` (with sovereignty over what ```"foo"``` means to them for their specific situation), the ```system``` (the application constraints & rules the developer controls), and the ```business``` (the owner of the system and enforcer of compliance, risk, and regulation).
+
+_Contextualize_ is a process to formalize making potential knowledge gaps visible, and thus available for resolution.
+
+Active Inference is an Artificial Intelligence field which applies the strategy of "identifying and minimizing uncertainty of surprise" as a core property
+
+**Context Graph** is formed by assigning a URI (pointer addresses) to observation events available to multiple perspectives as references for navigating learning.
+
+
+, relative to an _Intent Map_
+are nodes, and the recorded pointers between them are edges.
 
 What makes information contextual is the role it plays in the _process of changing the state of understanding of an Actor (human, agent, or system)_.
 
-For example, “the temperature is 30 degrees Celsius (86 degrees Fahrenheit)” is an observation. Learning that the measurement was taken outdoors during winter, at a location where temperatures are **normally below freezing**, _changes how that observation is understood_. Context serves the purpose of revealing missing information, "Why is the temperature so different than expected?". The process of answering questions context revealed gains us the knowledge to minimize the uncertainty of our own understanding.
+For example, “the temperature is 30 degrees Celsius (86 degrees Fahrenheit)” is an observation. Learning that the measurement was taken outdoors during winter, at a location where temperatures are **normally below freezing**, _changes how that observation is understood_. Context serves to reveal what information may be missing for an Actor—a human, agent, or system—to interpret information for a particular task.
 
-Without additional context, the temperature reading alone does not reveal why it may be surprising or whether there is a problem. **Contextualization** is the process of surfacing, comparing, and applying such information so that knowledge gaps become visible and available for resolution.
+In this example, context raises the question, “Why is the temperature so different from what was expected?” Answering questions revealed by context produces knowledge that reduces uncertainty in our understanding.
+
+Without additional context, the temperature reading alone does not reveal why it may be surprising or whether there is a problem. 
 
 Under this broad definition, meaning and structure are contextual dimensions because changes in meaning or structure can change understanding. The Context Graph Protocol makes these dimensions separately engineerable by representing each observed datum through four facets: **data, meaning, structure, and situational context**. 
 
@@ -20,7 +35,7 @@ The Context Graph Protocol uses URIs as addresses for lightweight reference arti
 
 > **Are we pointing to the same reference?**
 
-If not, then we don't have evidence that we, or a downstream process share an understanding. 
+If the references match, we have evidence of declared alignment—not proof of identical internal understanding. If they do not match, the protocol exposes the difference so that a declared comparison, transformation, validation, or business rule can determine whether the information remains compatible.
 
 The protocol applies to every sender-receiver pairing among humans, agents, and systems:
 
@@ -42,7 +57,7 @@ This gives every communication event a standard way to expose missing, differing
 
 The protocol does not require artificial intelligence. The same references, validations, and comparisons can be evaluated by people, deterministic programs, AI systems, or any combination of them.
 
-> **The goal is not to make an AI intelligent enough to guess how an organization’s data fits together. The goal is to reveal how an organization's many disparate systems have missing context, that once filled, minimizes the uncertainty of completing tasks in inefficient ways.**
+> The goal is not an AI intelligent enough to infer how an organization's data fits together. This is a limit of information, not capability: a date that arrives without its timezone does not contain its timezone, and no reader, whether AI or Human,however capable, can recover what was never sent. Only assumptions can be made, which carry risk. Misunderstanding that propagates downstream is paid for later — in errors, rework, wasted compute, and time. Surfacing the gap at the boundary is cheaper than discovering it after the fact.
 
 ## Background: The Problem of Dark Uncertainty
 
@@ -58,8 +73,8 @@ When an upstream process does not handle interpretive information, a downstream 
 
 The following Four Facets are a Data Product the Context Graph uses:
 1. Data: the information the observatron is sensing to be handled
-2. Structure: the Schema information, constraints, validation, generators
-3. Meaning: the human-readable definition
+2. Meaning: the human-readable definition
+3. Structure: the Schema information, constraints, validation, generators
 4. Context: the situational-information about the dataset that is not contained within the dataset to understand it.
 
 Facets 2-4 are considered "Dark", unless made explicit, because when Data alone is communicated, the others Facets exist but are invisible and vulnerable to assumptions by downstream which may or may not align.
