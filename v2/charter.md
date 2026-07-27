@@ -107,7 +107,7 @@ Each Steering Committee has a defined focus that contributes to the collective g
 
 - _Semantic Automata:_ Develop an alpha specification and reference implementation for machine-to-machine communication that preserves and exposes relevant system context (semantic attributions). Research and provide directions on the application of formal language and other related techniques to preserve semantic state-space in machine-to-machine communication. 
 - _Applied Knowledge:_ Develop standardized, user-centered measures for benchmarking contextual alignment in knowledge systems over time, including confidence, missing information and other dimensions that are relevant for users to calibrate reliance appropriately.
-- S_erialization & Specification:_ Develop clear, implementable serialization formats and support high-quality protocol documentation.
+- _Serialization & Specification:_ Develop clear, implementable serialization formats and support high-quality protocol documentation.
 - _Business & Finance:_ Provides a real-world business problem and usage scenario, including benchmarks and success criteria.
 - _Agentic Engineering:_ Apply a context graph to the full stack to block PII: Back-end (Markdown),front-end (HTML)user input & LLM output.
 
