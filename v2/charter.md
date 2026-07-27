@@ -4,7 +4,9 @@
 
 Ron Itelman, Chair, W3C Context Graph Community Group — *July 27, 2026*
 
-_Context_ is information that can change how other information is understood, relative to a task and moment in time. Context may itself be factual knowledge. What makes information contextual is the **role it plays in the process of changing interpretation**.
+**_Context_ is information that can change how information is understood, relative to a specific situation and local perspective in time. **
+
+What makes information contextual is the role it plays in the _process of changing the state of understanding of an Actor (human, agent, or system)_.
 
 For example, “the temperature is 30 degrees Celsius (86 degrees Fahrenheit)” is an observation. Learning that the measurement was taken outdoors during winter, at a location where temperatures are **normally below freezing**, _changes how that observation is understood_. Context serves the purpose of revealing missing information, "Why is the temperature so different than expected?". The process of answering questions context revealed gains us the knowledge to minimize the uncertainty of our own understanding.
 
@@ -18,7 +20,7 @@ The Context Graph Protocol uses URIs as addresses for lightweight reference arti
 
 > **Are we pointing to the same reference?**
 
-A participant may also apply a declared comparison, transformation, validation, or business rule when exact reference identity is not sufficient.
+If not, then we don't have evidence that we, or a downstream process share an understanding. 
 
 The protocol applies to every sender-receiver pairing among humans, agents, and systems:
 
@@ -42,27 +44,32 @@ The protocol does not require artificial intelligence. The same references, vali
 
 > **The goal is not to make an AI intelligent enough to guess how an organization’s data fits together. The goal is to reveal how an organization's many disparate systems have missing context, that once filled, minimizes the uncertainty of completing tasks in inefficient ways.**
 
-## Background to Need / Problem
+## Background: The Problem of Dark Uncertainty
 
 Organizational data is created by federated teams that do not share one representation of meaning, structure, or context. One team may use an ontology, another a data catalog, another a calibration record, another application code, and another local or tribal knowledge.
 
 Requiring a central knowledge engineer to unify all of these sources is often impractical and may remove important local distinctions. The Context Graph Protocol does not replace these local knowledge systems. Instead, it introduces a stable observation envelope through which they can be referenced and compared.
 
-Every observed datum is represented through the same four facets—data, meaning, structure, and context—while each participating party retains local authority over the references it contributes and over whether its own intent has been represented accurately.
+Because information is processed across differing system, each time information crosses a boundary, there is uncertainty of misinterpretation. Without making these risks explicit, they still exist implicitly.
 
-The protocol therefore normalizes the **declaration surface**, rather than requiring every organization or team to adopt the same ontology, schema, catalog, or internal knowledge model.
+When an upstream process does not handle interpretive information, a downstream system may silently substitute its own assumptions. The protocol calls required but unobserved information **Dark Uncertainty**.
 
-When an upstream process does not expose task-relevant interpretive information, a downstream system may silently substitute its own assumptions. The protocol calls required but unobserved information **Dark Uncertainty**.
+## Introducing Dark Facets
 
-Dark Uncertainty becomes measurable when an _Intent Map_ declares a finite set of variables or addresses that are relevant to the current task. The protocol can then record and count which declarations are:
+The following Four Facets are a Data Product the Context Graph uses:
+1. Data: the information the observatron is sensing to be handled
+2. Structure: the Schema information, constraints, validation, generators
+3. Meaning: the human-readable definition
+4. Context: the situational-information about the dataset that is not contained within the dataset to understand it.
 
-- present and aligned;
-- present but different; or
-- absent and therefore dark.
+Facets 2-4 are considered "Dark", unless made explicit, because when Data alone is communicated, the others Facets exist but are invisible and vulnerable to assumptions by downstream which may or may not align.
 
-Dark Uncertainty is not a claim to measure every unknown that could exist. It is a standard unit of measure of the declared, task-relevant information that was not observable at a particular boundary.
+A **Dark Facet** is the atomic unit of Dark Uncertainty. It records one blank meaning, structure, or context facet at an observed boundary. Dark Uncertainty may be reported as a raw Dark Facet Count or as the percentage of measured non-data facets that are Dark.
 
-By making those conditions addressable, the protocol enables organizations to engineer contextual experiences, compare independently produced data, minimize unsupported assumptions, and learn over time which contextual distinctions matter for reliable outcomes.
+An _Intent Map_ determines which Dark Facets are required for a particular task, and how to handle the state of the message _before_ it is sent. Some Facets may be perfectly okay as blank, some may need a warning, some may need to halt the message from proceeding.
+
+Any time we need to join data, store data, or understand data, we need to verify we are able to access each of these facets for the entire chain of Actors and processes.
+
 
 **Important Links**
 - To join: [https://www.w3.org/community/context-graph/](https://www.w3.org/community/context-graph/)
