@@ -1,136 +1,218 @@
-# W3C Context Graph Community Group
+# W3C Context Graphs Community Group Charter
 
-**Charter Version 2**
+**Version 2.0 — Release candidate** · **Date:** 18 August 2026 · **Chair:** Ron Itelman
 
-Ron Itelman, Chair, W3C Context Graph Community Group — *Aug 17, 2026*
+## 1. Mission
 
-## Background: The Problem of Dark Uncertainty
+The mission of the W3C Context Graphs Community Group is to develop specifications, vocabularies, implementation guidance, and best practices for making the contextual conditions under which data, messages, and other artifacts are interpreted at declared boundaries referable, measurable, comparable, routable, and auditable across people and systems.
 
-Organizational data is created by federated teams that do not share one representation of meaning, structure, or context. One team may use an ontology, another a data catalog, another a calibration record, another application code, and another local or tribal knowledge.
+The group's primary technical program is the **Context Graph Protocol (CGP)**: a protocol for observing communication events at declared boundaries, making relevant conditions of interpretation referable, comparing an immediate sender's intent with a reader's interpretation, and routing the measured state to an explicit response before or during downstream action.
 
-Requiring a central knowledge engineer to unify all of these sources is often impractical and may remove important local distinctions. The Context Graph Protocol does not replace these local knowledge systems. Instead, it introduces a stable observation envelope through which they can be referenced and compared continuously, in real-time, between sender and receiver in communication events.
+The group seeks to enable independent human and machine participants to:
 
-Because information is processed across differing system, each time information crosses a boundary, there is uncertainty of misinterpretation. Without making these risks explicit, they still exist implicitly.
+1. declare which contextual prerequisites matter for a task or decision;
+2. detect when required interpretive information is unresolved;
+3. compare declared interpretations when comparable references are available;
+4. route the result to `ACT`, `ASK`, or `HALT` behavior under an explicit policy;
+5. record the evidence, resolution, and outcome in an auditable trace; and
+6. learn from repeated contextual failures without silently imposing one participant's interpretation on another.
 
-When an upstream process does not handle interpretive information, a downstream system may silently substitute its own assumptions. The protocol calls required but unobserved information **Dark Context**.
+The protocol is intended to complement, not replace, existing ontologies, knowledge graphs, schemas, data catalogs, policies, provenance systems, and domain-specific governance. It standardizes a gauge and interaction envelope at a boundary; it does not standardize the meaning of every message.
 
-## Introducing Dark Facets
+## 2. Problem Statement
 
-The following Four Facets are a Data Product the Context Graph uses:
-1. Data: the information the observatron is sensing to be handled
-2. Meaning: the human-readable definition
-3. Structure: the Schema information, constraints, validation, generators
-4. World: the situational-information about the dataset that is not contained within the dataset to understand it.
+Organizations and technical ecosystems are federated. Their participants commonly use different definitions, schemas, reference data, policies, timeframes, operating assumptions, and local knowledge. Each participant may be internally consistent while a handoff between participants remains open to incompatible interpretations.
 
-Facets 2-4 are considered "Dark", unless made explicit, because when Data alone is communicated, the others Facets exist but are invisible and vulnerable to assumptions by downstream which may or may not align.
+When information crosses a boundary without the references needed to evaluate its interpretation, a receiving participant may silently substitute local assumptions. When a required `Context Facet` lacks resolving evidence at a declared crossing, CGP records that facet as `DARK`.
 
-A **Dark Facet** is the atomic unit of Dark Context. It records one blank meaning, structure, or context facet at an observed boundary. Dark Uncertainty may be reported as a raw Dark Facet Count or as the percentage of measured non-data facets that are Dark.
+`DARK` identifies a measurable absence of resolving evidence. It does not establish that a misinterpretation occurred; it establishes that fidelity between the immediate sender’s intent and the current reader’s interpretation cannot yet be verified at that crossing. `Dark Context` is the resulting unresolved state across the facets and crossings selected for observation.
 
-An _Intent Map_ determines which Dark Facets are required for a particular task, and how to handle the state of the message _before_ it is sent. Some Facets may be perfectly okay as blank, some may need a warning, some may need to halt the message from proceeding.
+The group treats this as an interoperability problem at the boundary between an immediate sender and reader. The protocol's purpose is to make that problem observable, measurable, routable, and auditable.
 
-Any time we need to join data, store data, or understand data, we need to verify we are able to access each of these facets for the entire chain of Actors and processes.
+## 3. Source of Truth and Reference Precedence
+
+This charter governs the Community Group's mission, scope, deliverables, and operating process. It is not the normative protocol specification.
+
+For the current alpha, the [https://colab.research.google.com/drive/1CTU0u-NWXMJkj5kWBni9U7xdZo4IyFjF?usp=sharing](https://colab.research.google.com/drive/1CTU0u-NWXMJkj5kWBni9U7xdZo4IyFjF?usp=sharing) is the authoritative technical reference for protocol terms, executable examples, and demonstrated behavior. A future Community Group Report may supersede the notebook through the decision process in this charter.
+
+The earlier [Context Graph Protocol Draft v0.1](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md) is retained as a historical implementation reference. It is deprecated and non-normative. In particular, its use of `Context` as the third non-data facet (the fourth facet overall) has been superseded by `World` in the Notebook Alpha.
+
+## 4. Protocol Model at a Glance
+
+This section is a charter-level summary. The Notebook Alpha controls the detailed definitions and executable behavior.
+
+### 4.1 Context and the four facets
+
+In this work, **Context** refers to the conditions required to interpret data coherently at a boundary.
+
+A `Spike` contains four facets:
+
+| Facet | Question answered | Illustrative examples | Typical Community Owners |
+| --- | --- | --- | --- |
+| `Data` | What information crossed the observed boundary? | a value, record, message, table column, or instruction | Data Engineer |
+| `Meaning` | What does the Data signify? | Celsius or Fahrenheit; gross or net revenue | Semantic / Ontologists |
+| `Structure` | How is the Data encoded, organized, generated, filtered, or validated? | schema version; date format; parser; rounding rule; constraint | API Engineers / Software Developers |
+| `World` | To what external entity, event, population, place, time, authority, or situation does the Data refer? | a vessel; a jurisdiction; fiscal year 2026; an applicable policy version | Domain Experts |
+
+A key operational benefit of **`CGP`**—short for the Context Graph Protocol—is that the contextual requirements contributed by different communities can be represented in one bundled data product rather than fragmented across separate artifacts.
+
+At the gauge layer, CGP is scale-invariant and computationally cheap by design:
+
+- every observed Spike has the same fixed structure: Data, Meaning, Structure, and World;
+- each observation adds exactly three measurable Context Facet positions;
+- structural overhead is constant per observed Spike; and
+- aggregate observation work grows linearly with the number of declared crossings.
+
+**`Context Gauge`**: One dataset or 10,000 changes the number of measurements—not the measurement. Domain-specific resolution and downstream decision analysis may introduce additional costs. The invariance three `Dark Context Facets` provides is treated as our formal gauge, for measuring concepts.
+
+> Once Context has a standard shape, it becomes computable.
+
+`Data` is present by observation: a `Spike` exists because Data crossed the boundary. `Meaning`, `Structure`, and `World` are the three **Context Facets** that can be `DARK` or `LIT`.
+
+- A Context Facet is `DARK` when it carries no resolving `cgvu:` referent at the observed crossing.
+- A Context Facet is `LIT` when it carries a resolving `cgvu:` referent.
+- `LIT` does not imply agreement. When the immediate sender and current reader expose comparable referents, the gauge can report `MATCH` or `NO MATCH`.
+- A `DARK` facet may happen to be interpreted correctly, but the protocol lacks the evidence needed to verify fidelity at that crossing.
+
+A **Dark Facet** is one unresolved `Meaning`, `Structure`, or `World` facet at a declared crossing. **Dark Context** is the resulting unresolved state across the facets and crossings selected for observation. The protocol may report a Dark Facet count or a proportion over a declared observation set.
+
+The Context Gauge does not decide which interpretation is correct or authoritative. That is a governance decision outside the gauge. The gauge makes the relevant conditions and comparisons explicit.
+
+### 4.2 Core components and flow
+
+| Component | Charter-level role |
+| --- | --- |
+| `Actor` | A human, model, service, application, or other participant that records intent, reads through an interpretation, or flags a condition. Sender and reader are roles in an event, not different kinds of participant. |
+| Boundary `Interaction` | An observed `input`, `process`, or `output` event. |
+| `Observatron` | A frameless evaluator anchored at a declared boundary. It observes crossings, mints `Spike`s, measures what is present or unresolved, and routes state for evaluation. It does not choose or bind an interpretation. |
+| `Spike` | The four-facet object minted when Data crosses an observed boundary: `Data`, `Meaning`, `Structure`, and `World`. |
+| `Context State` | The boundary events, Spikes, facets, values, and statuses available for evaluation. |
+| `Intent Map` | The declared rulebook specifying what to observe, where to observe it, the relevant facet answer spaces, applicable conditions, and available routing instructions. |
+| `Governor` | The routing decision model that evaluates Context State under the Intent Map and applicable policy. Its `Decidability Gate` evaluates whether the current Context fixes the relevant operational verdict despite any remaining unresolved facets. |
+| Governor `Verdict` | Exactly one of `ACT`, `ASK`, or `HALT`. This routing verdict is distinct from an operational verdict such as approve/reject or `GO`/`NO-GO`. |
+| `Decision Route` and `Handler` | The addressable route selected by the Governor and the registered behavior that performs it. Semantics live in the referenced behavior, not in the gate. |
+| `Certificate` | A minimal set of answers that fixes an operational verdict regardless of the remaining Dark facets. The remaining facets may stay Dark while becoming inert for that decision. |
+| `Decision Trace` | A durable record of the observed state, comparisons, applicable declarations, resolutions, routing verdict, invoked behavior, and relevant operational outcome. |
+
+The minimal protocol flow is:
+
+1. a declared boundary interaction occurs;
+2. an Observatron observes the crossing and mints one or more Spikes as declared by an Intent Map;
+3. the Context State records the four facets and their `DARK`/`LIT` status;
+4. comparable sender and reader referents may be evaluated as `MATCH` or `NO MATCH`;
+5. the Governor applies the Intent Map, Decidability Gate, and applicable policy;
+6. the Governor returns `ACT`, `ASK`, or `HALT` and selects an addressable Decision Route;
+7. the registered Handler performs the behavior and emits any resulting events; and
+8. the decision and resolution evidence are recorded in a Decision Trace.
+
+`HALT` is absorbing for a routing evaluation: once a declared halt condition fires, another input does not lower that evaluation to `ASK` or `ACT`. `ASK` may request a declared answer, support negotiation of a new locally scoped referent, or otherwise open a feedback loop. A suggested or inferred answer does not light a facet until the applicable policy's confirmation or binding requirement has been satisfied.
+
+## 5. Scope
+
+### 5.1 In scope
+
+The Community Group may develop and evaluate:
+
+1. **Core data model and vocabulary.** A model for boundary interactions, Spikes, the four facets, Context State, Dark/Lit status, Match/No Match comparisons, answer spaces, decisions, routes, handlers, certificates, and traces.
+2. **Intent Map format.** A declarative, machine-consumable way to specify observation rules, finite candidate answer spaces, required facets, policies, and routing behavior.
+3. **Governor and routing behavior.** Testable rules for `ACT`, `ASK`, and `HALT`, including Decidability Gate behavior, addressable routes, resolution handling, and halt witnesses.
+4. **Addressing and serialization.** Interoperable identifiers, schemas, serialization formats, registries, and APIs for protocol artifacts, including experimental `cgp:` and `cgvu:` address spaces.
+5. **Decision and resolution traces.** Formats for recording what was observed, compared, inferred, asked, confirmed, routed, and decided, with appropriate provenance.
+6. **Composition across boundaries.** Methods for evaluating Context across loops, joins, chains, networks of Observatrons, and shared resolution records without silently propagating an interpretation.
+7. **Measurement and benchmarking.** Reproducible measures of Dark Context, contextual alignment, decision relevance, resolution cost, regret, value of information, and related outcomes under explicitly declared assumptions.
+8. **Interoperability mappings.** Guidance for using CGP with existing semantic, schema, provenance, policy, data-management, and agent technologies.
+9. **Security, privacy, and human oversight.** Requirements and patterns for data minimization, consent, provenance, access control, retention, PII handling, safe stopping, and user confirmation in Context-aware systems.
+10. **Use cases, implementation experience, and formalization.** Public use cases, reference implementations, conformance tests, finite executable witnesses, and candidate formal proofs.
 
 
-**Important Links**
-- To join: [https://www.w3.org/community/context-graph/](https://www.w3.org/community/context-graph/)
-- Notebook demonstrating all key components: [https://colab.research.google.com/drive/1CTU0u-NWXMJkj5kWBni9U7xdZo4IyFjF?usp=sharing](https://colab.research.google.com/drive/1CTU0u-NWXMJkj5kWBni9U7xdZo4IyFjF?usp=sharing)
-- Whitepaper overview: [https://github.com/W3C-Context-Graph-Community-Group/r_and_d_assets/issues/2](https://github.com/W3C-Context-Graph-Community-Group/r_and_d_assets/issues/2)
-- Whitepaper acceptance criteria: [https://github.com/W3C-Context-Graph-Community-Group/r_and_d_assets/issues/3#issue-5152210151](https://github.com/W3C-Context-Graph-Community-Group/r_and_d_assets/issues/3#issue-5152210151)
-- Implementation reference spec (deprecated): [https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md](https://github.com/W3C-Context-Graph-Community-Group/Charter/blob/main/Context-Graph-Protocol-draft-v0.1.md)
+## 6. Design Principles
 
-## Quick Business Explanation
-As businesses adopt AI and generative AI for knowledge work, it is increasingly important to ensure that:
+The group's work should follow these principles:
 
-1. An agent has sufficient information about the user’s intent before executing a task
-2. Differences in meaning, assumptions, or context can be surfaced and resolved
-3. Organizations can learn from previous context-related events rather than resolving the same ambiguity from scratch each time
+- **Gauge, not judge.** Measure whether required interpretive references are present and comparable; do not silently select an authoritative interpretation.
+- **Semantic sovereignty.** Preserve each participant's ability to declare and confirm its own interpretation. A cohort suggestion may prefill an `ASK`; it must not resolve the question on the participant's behalf unless a declared policy explicitly authorizes binding.
+- **Boundary-local evidence.** State claims in relation to a declared sender, reader, crossing, task, and decision. Do not imply a universal perspective where only a local one was measured.
+- **Explicit assumptions.** Declare candidate answer spaces, policies, weighting, costs, thresholds, and observation boundaries used by an experiment or implementation.
+- **Deterministic and testable core.** Specify behaviors precisely enough to support repeatable conformance tests and audit replay. Inference may be used, but its role and outputs must remain visible.
+- **Addressability and provenance.** Make declarations, routes, handlers, resolutions, and relevant evidence referable and traceable.
+- **Composability without silent adoption.** Permit evidence and confirmed resolutions to travel across boundaries while retaining scope, provenance, version, and consent constraints.
+- **Implement incrementally.** Permit useful deployment at a single boundary without requiring a universal ontology or centralized knowledge model.
+- **Privacy and safety by design.** Minimize captured data, protect sensitive traces and resolutions, and include a safe stopping path where required Context cannot be resolved.
 
-For example, a banker asks an AI system, “What were my trades yesterday?” The correct interpretation may depend on the banker’s location, the exchange’s timezone, the organization’s reporting calendar, and the intended reference date.
+## 7. Deliverables
 
-Without a declared reference for the _user-intent_, “yesterday” may refer to different calendar periods in Singapore, London, and New York. The information needed to determine the intended period is context. 
+### 7.1 Group-level deliverables
 
-A Context Graph may be instantiated on demand at a system boundary and provides a standard structure for recording, evaluating, and resolving potential contextual misalignment.
+The Community Group intends to produce the following public work products, one or more of which may be published as W3C Community Group Reports:
 
-## High-Level Technical Overview
-A Context Graph is produced by running the processes defined by the protocol. The initial technical model includes four primary components:
+1. **Context Graph Protocol Alpha Specification** — the core vocabulary, lifecycle, state model, routing model, and conformance requirements aligned with the Notebook Alpha.
+2. **Benchmarking White Paper** — an evidence-based report integrating committee work and evaluating CGP against relevant baseline approaches. Initial work will include a tax-preparation-services knowledge-task problem space and declared measures of cost, accuracy, quality, and the compounding effects of broken Context.
+   
+The Group Chair serves as lead editor for an integrated white paper and transition materials, with contributor attribution and publication subject to this charter, the applicable decision process, and W3C requirements. Steering Committees and participants may also publish separate materials consistent with the applicable contribution and licensing rules.
 
-1. _Observatron:_ Observes communication events at a defined boundary
-2. _Intent Map:_ Defines what communication events may trigger a response by the system
-3. _Decidability Gate:_ Applies declared rules to select an Act, Ask, or Halt response
-4. _Dark Facets:_ Provides a common structure for recording Data, Meaning, Structure, and Context
-5. _Decision Trace_: a durable record of what was interpreted, what was resolved, and how the system responded.
-  
-Traditional semantic systems can provide rich representations of meaning, but they generally depend on prior agreement about terms, vocabularies, or models. Many non-semantic systems do not provide a standard mechanism for detecting and resolving conflicts in meaning or context.
+### 7.2 Maturity and claims
 
-Both kinds of systems can encounter the same problem at a boundary: the receiving system may interpret information differently from the sending system without either party detecting the difference. The Context Graph Protocol is intended to complement existing approaches by providing a lightweight mechanism for surfacing and responding to potential misalignment in meaning, context, and intent.
+Every technical deliverable must state its maturity and distinguish among:
 
-## Group Structure
-The group organizes its work through topic-specific steering committees. Each committee is led by a Steering Committee Chair responsible for coordinating that committee’s subject area, participation, and deliverables.
+- design proposals;
+- implemented behavior;
+- finite or empirical test results;
+- formally verified results; and
+- open research questions.
 
-“Steering Committee Chair” is an internal leadership title within the Context Graph Community Group. Each Chair is responsible for defined deliverables that support the group’s primary objective: identifying and pursuing the most direct viable path for the Context Graph Protocol to transition into standardization through a W3C Working Group.
+## 8. Group Structure
 
-### Steering Committee
+### 8.1 Community Group Chair
 
-**Committee Deliverables**
+Ron Itelman serves as the Founding Chair and current W3C Community Group Chair. The Chair coordinates the integrated roadmap, charter, specification work, committee structure, public decision record, and any preparation for a potential transition to a W3C Working Group.
 
-Each Steering Committee has a defined focus that contributes to the collective goals of the group:
+### 8.2 Steering Committees
 
-- _Semantic Automata:_ Develop an alpha specification and reference implementation for machine-to-machine communication that preserves and exposes relevant system context (semantic attributions). Research and provide directions on the application of formal language and other related techniques to preserve semantic state-space in machine-to-machine communication. 
-- _Applied Knowledge:_ Develop standardized, user-centered measures for benchmarking contextual alignment in knowledge systems over time, including confidence, missing information and other dimensions that are relevant for users to calibrate reliance appropriately.
-- _Serialization & Specification:_ Develop clear, implementable serialization formats and support high-quality protocol documentation.
-- _Business & Finance:_ Provides a real-world business problem and usage scenario, including benchmarks and success criteria.
-- _Agentic Engineering:_ Apply a context graph to the full stack to block PII: Back-end (Markdown),front-end (HTML)user input & LLM output.
+The group organizes focused work through Steering Committees. A Steering Committee Chair coordinates participation, public work items, and the deliverables in that subject area. The committees advise and contribute to the Community Group; they do not independently change this charter or supersede group-level technical definitions.
 
-**Steering Committee Chairs**
-- _Semantic Automata:_ Indranil Mukhopadhyay, Principal Architect - Data Systems & Platforms and Quantum Ambassador (Technical), IBM.
-- _Applied Knowledge:_ Audrey Depeige, Head of Knowledge Intelligence, Amazon.
-- _Agentic Engineering:_ Alex Brown, Sr. Director of Enterprise AI Engineering, Broadridge.
-- _Serialization & Specification:_ Juan Cruz Viotti, Founder of SourceMeta and member of the JSON Schema Technical Steering Committee.
-- _Business & Finance:_ Ajay Wanchoo, Senior Managing Director, KPMG.
-- _Explainability:_ 	Michael Barnett, Founder & CTO, HMX
+The initial committee portfolio is:
 
-**Group Chair's Deliverables**
-- A white paper, authored and edited by the Group Chair, published as a W3C Community Group Report, integrating contributions from the Steering Committees at the Chair's editorial discretion. Participants and committees may separately publish their own materials.
-- Preparation material & work with Steering Committee Chairs to move the group to a W3C Working Group status, with the white paper as evidence to provide the W3C and its members.
+| Steering Committee | Remit | Initial Chair |
+| --- | --- | --- |
+| **Semantic Automata** | Develop alpha specification and reference-implementation work for machine-to-machine communication that preserves and exposes relevant Context Facets; investigate formal-language and related techniques for protocol state and routing. | Indranil Mukhopadhyay |
+| **Applied Knowledge** | Develop user-centered measures and benchmarks for contextual alignment, missing information, decision impact, and reliance calibration over time. | Audrey Depeige |
+| **Agentic Engineering** | Apply CGP across application layers and agent interactions, including PII detection and routing across backend artifacts, frontend inputs, and model outputs. | Alex Brown |
+| **Serialization & Specification** | Develop clear, implementable serializations, schemas, APIs, conformance language, and high-quality protocol documentation. | Juan Cruz Viotti |
+| **Business & Finance** | Supply real-world business problems, usage scenarios, benchmarks, and success criteria, including inputs to the integrated white paper. | Ajay Wanchoo |
+| **Explainability** | Define how systems present relevant facets, evidence, assumptions, routes, and operational consequences so that people can understand and review Context-aware decisions. | Michael Barnett |
 
-**Community Group Member Deliverables**
-- Participation is open to anyone; W3C membership is not required and there is no fee to join. The group welcomes participants who wish to contribute real-world use cases and context-alignment needs, propose features or specification requirements, and experiment with the alpha Context Graph Protocol specification and reference implementation. Use cases and feature requests are submitted as issues in the group's GitHub repository or on the public mailing list.
+Affiliations and professional titles may be maintained in a separate, current roster. They are provided for identification only and do not imply endorsement by an employer or by W3C.
 
+Steering Committee Chairs are appointed by the Community Group Chair. The Chair may appoint, replace, or leave vacant a Steering Committee Chair role based on participation, delivery, group needs, or alignment with the charter. Changes and their effective dates will be communicated respectfully and recorded publicly. Where practical, outgoing chairs should support a reasonable handoff of public work and records.
 
-## Operations & Processes
+### 8.3 How participants contribute
 
-### Decision Process
+Participation is open to anyone under the W3C Community Group process; W3C membership is not required and there is no participation fee. Participants may:
 
-The group will seek to make decisions through consensus.
+- contribute use cases and contextual-alignment requirements;
+- review terminology, models, schemas, and protocol behavior;
+- propose features and specification requirements;
+- implement or test the alpha protocol;
+- contribute benchmarks, test vectors, formalizations, and interoperability mappings; and
+- participate in Steering Committees, public discussions, Calls for Consensus, and votes.
 
-The Community Group Chair may make routine operational, editorial, scheduling, and committee-management decisions. Material decisions affecting the group’s specifications, deliverables, or governance will be publicly recorded.
+No participant is required to join a Steering Committee to contribute to the group.
 
-When broader participant review is appropriate, the Community Group Chair may issue a Call for Consensus lasting at least 14 calendar days. If no substantive objection is raised, the proposal is adopted by consensus.
+As the group evolves, we will be actively working to integrate community-driven efforts to develop CGP into a working group.
 
-If a substantive objection cannot be resolved and a decision is required for the group to continue its work, the Community Group Chair may call a recorded vote. Unless otherwise specified in this Charter, a proposal is approved by a simple majority of votes cast.
+## 9. Learning by Building and Staying Aligned
 
-### Leadership
+The group will learn through open discussion, executable demonstrations, implementation experience, and evidence from use. It will avoid adding process merely to anticipate situations that have not occurred. Additional operating practices may be introduced when experience shows they are needed.
 
-Ron Itelman serves as the Founding Chair and current W3C Community Group Chair. The Community Group Chair coordinates the integrated roadmap, Charter, specification work, committee structure, and potential transition of the group’s work to a W3C Working Group.
+Participants are encouraged to take CGP into new domains and to propose new research, specifications, implementations, and collaborations. To help the group remain aligned, each substantial effort should be able to answer four questions:
 
-Steering Committee Chairs are appointed by the Community Group Chair and are responsible for defined subject areas and deliverables. The Community Group Chair may appoint, replace, or leave vacant a Steering Committee Chair position based on the group’s needs, participation, delivery, or alignment with the Charter. Leadership changes will be communicated respectfully and publicly recorded.
+1. What contextual-misalignment problem does this work address?
+2. How does it use, extend, or explicitly challenge the shared foundation?
+3. What evidence, implementation, or test would allow others to evaluate it?
+4. How could it contribute to protocol maturity, adoption, or Working Group readiness?
 
-The addition, replacement, or removal of a formal W3C Community Group Chair requires a Call for Consensus of the group’s participants. If the matter remains contested, it requires approval by two-thirds of votes cast. A formal Community Group Chair continues to serve until they resign or a change is approved under this process.
+These are alignment questions, not gates on creativity. They provide a common way to connect diverse work back to the group's purpose.
 
-### Charter Ratification and Amendments
+The group will seek shared understanding and consensus. When more formal process is needed, the applicable W3C Community Group process provides the framework.
 
-The Charter ratification process may begin no earlier than the group’s first quarterly meeting.
-
-Following that meeting, the Community Group Chair will provide the proposed Charter to all group participants and open a 14-day review period. Participants may raise substantive objections through the group’s public mailing list or GitHub repository.
-
-If no substantive objection is received, the Charter is ratified by consensus. If an objection cannot be resolved through discussion or revision, the Community Group Chair may call a recorded vote. Ratification requires approval by two-thirds of votes cast.
-
-After ratification, substantive changes to the group’s mission, scope, deliverables, leadership process, decision process, or amendment process will follow the same 14-day review and approval process.
-
-The Community Group Chair may make non-substantive corrections—including typographical, formatting, link, title, and contact-information updates—without a vote. Such changes will be publicly recorded.
-
-### Participation, Contributions, and Licensing
-This group operates under the W3C Community and Business Group Process. Anything in this Charter that conflicts with that Process, the Community Contributor License Agreement (CLA), or the Final Specification Agreement (FSA) is void. Participation is open to anyone; W3C membership is not required and there is no fee to join. Substantive contributions to specifications are made only by participants who have agreed to the CLA. All specifications, documents, software, and code artifacts produced by the group are licensed under the W3C Software and Document License. The group conducts its technical work in public, and the W3C Code of Ethics and Professional Conduct applies.
-
-## Notes
-This is in a draft state. It is expected to evolve through public contributions, implementation experience, testing, and Community Group decision-making.
+The destination is a W3C Working Group. The path toward it will be shaped by what the community learns.
